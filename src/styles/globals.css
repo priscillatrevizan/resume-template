@@ -1,0 +1,548 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: #1f2937;
+  --card: #ffffff;
+  --card-foreground: #1f2937;
+  --popover: #ffffff;
+  --popover-foreground: #1f2937;
+  --primary: #030213;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #6b7280;
+  --chart-1: #f97316;
+  --chart-2: #06b6d4;
+  --chart-3: #3b82f6;
+  --chart-4: #84cc16;
+  --chart-5: #eab308;
+  --radius: 0.625rem;
+
+  /* Cores pastéis acessíveis para badges e estados */
+  --pastel-blue: #dbeafe;
+  --pastel-blue-foreground: #1e40af;
+  --pastel-green: #dcfce7;
+  --pastel-green-foreground: #166534;
+  --pastel-purple: #e9d5ff;
+  --pastel-purple-foreground: #7c3aed;
+  --pastel-orange: #fed7aa;
+  --pastel-orange-foreground: #ea580c;
+  --pastel-pink: #fce7f3;
+  --pastel-pink-foreground: #be185d;
+  --pastel-cyan: #cffafe;
+  --pastel-cyan-foreground: #0891b2;
+  --pastel-yellow: #fef3c7;
+  --pastel-yellow-foreground: #d97706;
+  --pastel-indigo: #e0e7ff;
+  --pastel-indigo-foreground: #4338ca;
+  --sidebar: #fafafa;
+  --sidebar-foreground: #1f2937;
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #f5f5f5;
+  --sidebar-accent-foreground: #374151;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #6b7280;
+}
+
+.dark {
+  --background: #1f2937;
+  --foreground: #fafafa;
+  --card: #1f2937;
+  --card-foreground: #fafafa;
+  --popover: #1f2937;
+  --popover-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #374151;
+  --secondary: #374151;
+  --secondary-foreground: #fafafa;
+  --muted: #374151;
+  --muted-foreground: #6b7280;
+  --accent: #374151;
+  --accent-foreground: #fafafa;
+  --destructive: #dc2626;
+  --destructive-foreground: #fef2f2;
+  --border: #374151;
+  --input: #374151;
+  --ring: #6b7280;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #6366f1;
+  --chart-2: #10b981;
+  --chart-3: #eab308;
+  --chart-4: #f59e0b;
+  --chart-5: #ef4444;
+
+  /* Cores pastéis para modo escuro */
+  --pastel-blue: #1e3a8a;
+  --pastel-blue-foreground: #dbeafe;
+  --pastel-green: #14532d;
+  --pastel-green-foreground: #bbf7d0;
+  --pastel-purple: #581c87;
+  --pastel-purple-foreground: #e9d5ff;
+  --pastel-orange: #c2410c;
+  --pastel-orange-foreground: #fed7aa;
+  --pastel-pink: #9d174d;
+  --pastel-pink-foreground: #fce7f3;
+  --pastel-cyan: #155e75;
+  --pastel-cyan-foreground: #cffafe;
+  --pastel-yellow: #92400e;
+  --pastel-yellow-foreground: #fef3c7;
+  --pastel-indigo: #3730a3;
+  --pastel-indigo-foreground: #e0e7ff;
+
+  --sidebar: #374151;
+  --sidebar-foreground: #fafafa;
+  --sidebar-primary: #6366f1;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #374151;
+  --sidebar-accent-foreground: #fafafa;
+  --sidebar-border: #374151;
+  --sidebar-ring: #6b7280;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Cores pastéis mapeadas */
+  --color-pastel-blue: var(--pastel-blue);
+  --color-pastel-blue-foreground: var(--pastel-blue-foreground);
+  --color-pastel-green: var(--pastel-green);
+  --color-pastel-green-foreground: var(--pastel-green-foreground);
+  --color-pastel-purple: var(--pastel-purple);
+  --color-pastel-purple-foreground: var(--pastel-purple-foreground);
+  --color-pastel-orange: var(--pastel-orange);
+  --color-pastel-orange-foreground: var(--pastel-orange-foreground);
+  --color-pastel-pink: var(--pastel-pink);
+  --color-pastel-pink-foreground: var(--pastel-pink-foreground);
+  --color-pastel-cyan: var(--pastel-cyan);
+  --color-pastel-cyan-foreground: var(--pastel-cyan-foreground);
+  --color-pastel-yellow: var(--pastel-yellow);
+  --color-pastel-yellow-foreground: var(--pastel-yellow-foreground);
+  --color-pastel-indigo: var(--pastel-indigo);
+  --color-pastel-indigo-foreground: var(--pastel-indigo-foreground);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Estados de foco e hover com cores pastéis */
+@layer utilities {
+  .focus-pastel-blue {
+    @apply focus-visible:ring-pastel-blue/30 focus-visible:border-pastel-blue;
+  }
+
+  .focus-pastel-green {
+    @apply focus-visible:ring-pastel-green/30 focus-visible:border-pastel-green;
+  }
+
+  .focus-pastel-purple {
+    @apply focus-visible:ring-pastel-purple/30 focus-visible:border-pastel-purple;
+  }
+
+  .focus-pastel-orange {
+    @apply focus-visible:ring-pastel-orange/30 focus-visible:border-pastel-orange;
+  }
+
+  .focus-pastel-pink {
+    @apply focus-visible:ring-pastel-pink/30 focus-visible:border-pastel-pink;
+  }
+
+  .focus-pastel-cyan {
+    @apply focus-visible:ring-pastel-cyan/30 focus-visible:border-pastel-cyan;
+  }
+
+  .focus-pastel-yellow {
+    @apply focus-visible:ring-pastel-yellow/30 focus-visible:border-pastel-yellow;
+  }
+
+  .focus-pastel-indigo {
+    @apply focus-visible:ring-pastel-indigo/30 focus-visible:border-pastel-indigo;
+  }
+
+  /* Bordas com gradientes pastéis sutis */
+  .border-gradient-pastel {
+    background: linear-gradient(var(--background), var(--background)) padding-box,
+      linear-gradient(135deg,
+        var(--pastel-blue),
+        var(--pastel-purple),
+        var(--pastel-pink),
+        var(--pastel-orange)) border-box;
+    border: 1px solid transparent;
+  }
+
+  /* Cards com hover effect pastel */
+  .card-hover-pastel {
+    transition: all 0.2s ease;
+  }
+
+  .card-hover-pastel:hover {
+    box-shadow: 0 8px 25px -8px var(--pastel-blue),
+      0 4px 15px -4px var(--pastel-purple);
+    transform: translateY(-2px);
+  }
+
+  /* Estilos para PDF/Print */
+  .print-only {
+    display: none;
+  }
+
+  /* Print Preview Styles - Apply print styles to preview page */
+  .print-preview-content {
+    font-family: Arial, sans-serif !important;
+    /* A4 paper dimensions simulation */
+    width: 8.5in;
+    min-height: 11in;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+  }
+
+  .print-preview-content * {
+    font-family: Arial, sans-serif !important;
+  }
+
+  /* Apply print layout styles to preview - Match @media print exactly */
+  .print-layout {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 11pt !important;
+  }
+
+  .print-layout * {
+    --background: #ffffff !important;
+    --foreground: #000000 !important;
+    --card: #ffffff !important;
+    --card-foreground: #000000 !important;
+    --primary: #000000 !important;
+    --primary-foreground: #ffffff !important;
+    --secondary: #ffffff !important;
+    --secondary-foreground: #000000 !important;
+    --muted: #f8f9fa !important;
+    --muted-foreground: #6c757d !important;
+    --border: #dee2e6 !important;
+    --ring: #6c757d !important;
+
+    /* Remove all pastel colors */
+    --pastel-blue: transparent !important;
+    --pastel-blue-foreground: #000000 !important;
+    --pastel-green: transparent !important;
+    --pastel-green-foreground: #000000 !important;
+    --pastel-purple: transparent !important;
+    --pastel-purple-foreground: #000000 !important;
+    --pastel-orange: transparent !important;
+    --pastel-orange-foreground: #000000 !important;
+    --pastel-pink: transparent !important;
+    --pastel-pink-foreground: #000000 !important;
+    --pastel-cyan: transparent !important;
+    --pastel-cyan-foreground: #000000 !important;
+    --pastel-yellow: transparent !important;
+    --pastel-yellow-foreground: #000000 !important;
+    --pastel-indigo: transparent !important;
+    --pastel-indigo-foreground: #000000 !important;
+  }
+
+  /* Hide no-print elements in preview */
+  .print-layout .no-print {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Show print-only elements in preview */
+  .print-layout .print-only {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Hide elements in print preview that would be hidden in PDF */
+  .print-layout form,
+  .print-layout input,
+  .print-layout textarea,
+  .print-layout button:not(.print-as-link),
+  .print-layout label[for],
+  .print-layout svg,
+  .print-layout .lucide,
+  .print-layout [class*="icon"],
+  .print-layout [class*="lucide"],
+  .print-layout .lucide-*,
+  .print-layout [data-lucide],
+  .print-layout img:not(.print-keep) {
+    display: none !important;
+  }
+
+  .print-layout .print-only {
+    display: block !important;
+  }
+
+  /* Force monochromatic badges in preview - Match @media print exactly */
+  .print-layout .badge,
+  .print-layout [data-slot="badge"],
+  .print-layout span[data-slot="badge"],
+  .print-layout .inline-flex[data-slot="badge"],
+  .print-layout [class*="badge"],
+  .print-layout [class*="rounded-md"][class*="border"],
+  .print-layout [class*="bg-pastel"],
+  .print-layout [class*="text-pastel"] {
+    background-color: transparent !important;
+    background-image: none !important;
+    background: none !important;
+    color: #000000 !important;
+    border: none !important;
+    border-color: transparent !important;
+    font-weight: normal !important;
+    font-size: 11pt !important;
+    padding: 0 2pt !important;
+    margin: 0 2pt !important;
+    border-radius: 0 !important;
+    display: inline !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  /* Remove decorative elements in preview */
+  .print-layout .card-hover-pastel,
+  .print-layout .border-gradient-pastel {
+    box-shadow: none !important;
+    transform: none !important;
+    background: none !important;
+    background-color: #ffffff !important;
+    border: none !important;
+  }
+
+  .print-layout .bg-primary\/10,
+  .print-layout .rounded-lg,
+  .print-layout [class*="shadow"],
+  .print-layout [class*="hover:"],
+  .print-layout .transition-colors {
+    background: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Remove progress bars, cards and other visual elements in preview */
+  .print-layout .card,
+  .print-layout [role="progressbar"],
+  .print-layout .progress {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Clean typography in preview - Match @media print exactly */
+  .print-layout h1 {
+    font-size: 16pt !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+    margin: 0 0 0.1in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  .print-layout h2 {
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+    margin: 0.2in 0 0.1in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  .print-layout h3 {
+    font-size: 12pt !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+    margin: 0.1in 0 0.05in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  .print-layout h4 {
+    font-size: 11pt !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+    margin: 0.1in 0 0.05in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  .print-layout p,
+  .print-layout span,
+  .print-layout li {
+    color: #000000 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    margin: 0.05in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  /* Clean link styling in preview */
+  .print-layout a[href] {
+    color: #000000 !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
+  }
+
+  /* Force any pastel classes to be transparent in preview */
+  .print-layout [class*="pastel"] {
+    background-color: transparent !important;
+    background-image: none !important;
+    background: transparent !important;
+    color: #000000 !important;
+    border-color: transparent !important;
+  }
+
+  /* Apply the same rules as @media print to preview */
+  .print-layout {
+    position: relative !important;
+    width: 100% !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 11pt !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  /* Mimic @media print typography in preview */
+  .print-layout h1 {
+    font-size: 16pt !important;
+    margin: 0 0 0.1in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  .print-layout h2 {
+    font-size: 14pt !important;
+    margin: 0.2in 0 0.1in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  .print-layout h3 {
+    font-size: 12pt !important;
+    margin: 0.1in 0 0.05in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  .print-layout h4 {
+    font-size: 11pt !important;
+    margin: 0.1in 0 0.05in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  .print-layout p,
+  .print-layout li {
+    font-size: 11pt !important;
+    margin: 0.05in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
