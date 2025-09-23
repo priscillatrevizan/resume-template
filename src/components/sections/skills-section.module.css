@@ -1,0 +1,225 @@
+/* Skills Section Styles */
+.skillsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.headerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mainTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+  color: var(--foreground);
+}
+
+.subtitle {
+  color: var(--muted-foreground);
+}
+
+.noPrint {
+  display: block;
+}
+
+.printOnly {
+  display: none;
+}
+
+.skillsGrid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.skillCard {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.skillCard:hover {
+  box-shadow: 0 8px 25px -8px var(--pastel-blue),
+    0 4px 15px -4px var(--pastel-purple);
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.75rem;
+  color: var(--card-foreground);
+  margin: 0;
+}
+
+.cardContent {
+  padding: 1.5rem;
+}
+
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skillItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skillName {
+  font-weight: 500;
+}
+
+.skillPercentage {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--muted-foreground);
+}
+
+.progressBar {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--muted);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: var(--primary);
+  transition: width 0.6s ease-in-out;
+  border-radius: 0.25rem;
+}
+
+.badgeContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1rem;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.badgeBlue {
+  background-color: var(--pastel-blue);
+  color: var(--pastel-blue-foreground);
+}
+
+.badgeGreen {
+  background-color: var(--pastel-green);
+  color: var(--pastel-green-foreground);
+}
+
+.badgePurple {
+  background-color: var(--pastel-purple);
+  color: var(--pastel-purple-foreground);
+}
+
+.badgeOrange {
+  background-color: var(--pastel-orange);
+  color: var(--pastel-orange-foreground);
+}
+
+.badgePink {
+  background-color: var(--pastel-pink);
+  color: var(--pastel-pink-foreground);
+}
+
+.badgeCyan {
+  background-color: var(--pastel-cyan);
+  color: var(--pastel-cyan-foreground);
+}
+
+.badgeYellow {
+  background-color: var(--pastel-yellow);
+  color: var(--pastel-yellow-foreground);
+}
+
+.badgeIndigo {
+  background-color: var(--pastel-indigo);
+  color: var(--pastel-indigo-foreground);
+}
+
+.printSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.printSubsection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.printSectionTitle {
+  font-weight: 500;
+  margin: 0;
+}
+
+.printContent {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media print {
+  .noPrint {
+    display: none !important;
+  }
+
+  .printOnly {
+    display: flex !important;
+  }
+
+  .mainTitle {
+    color: #1e293b;
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    display: none;
+  }
+
+  .printSectionTitle {
+    color: #1e293b;
+    font-size: 0.875rem;
+  }
+
+  .printContent {
+    color: #374151;
+    font-size: 0.75rem;
+  }
+}

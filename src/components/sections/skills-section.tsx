@@ -1,6 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { Badge } from "../ui/badge";
-import { Progress } from "../ui/progress";
+import styles from "./skills-section.module.css";
 
 const skillCategories = [
   {
@@ -11,19 +9,19 @@ const skillCategories = [
       { name: "Next.js", level: 85 },
       { name: "Vue.js", level: 80 },
       { name: "Tailwind CSS", level: 90 },
-      { name: "SASS/SCSS", level: 85 }
-    ]
+      { name: "SASS/SCSS", level: 85 },
+    ],
   },
   {
-    title: "Backend", 
+    title: "Backend",
     skills: [
       { name: "Node.js", level: 90 },
       { name: "Express.js", level: 88 },
       { name: "NestJS", level: 75 },
       { name: "Python", level: 70 },
       { name: "REST APIs", level: 95 },
-      { name: "GraphQL", level: 80 }
-    ]
+      { name: "GraphQL", level: 80 },
+    ],
   },
   {
     title: "Database",
@@ -33,8 +31,8 @@ const skillCategories = [
       { name: "Redis", level: 75 },
       { name: "MySQL", level: 80 },
       { name: "Prisma", level: 85 },
-      { name: "TypeORM", level: 80 }
-    ]
+      { name: "TypeORM", level: 80 },
+    ],
   },
   {
     title: "DevOps & Cloud",
@@ -44,9 +42,9 @@ const skillCategories = [
       { name: "Kubernetes", level: 70 },
       { name: "CI/CD", level: 85 },
       { name: "Terraform", level: 65 },
-      { name: "Nginx", level: 75 }
-    ]
-  }
+      { name: "Nginx", level: 75 },
+    ],
+  },
 ];
 
 const tools = [
@@ -61,7 +59,7 @@ const tools = [
   { name: "Confluence", variant: "pastel-blue" },
   { name: "Slack", variant: "pastel-green" },
   { name: "Linear", variant: "pastel-purple" },
-  { name: "Vercel", variant: "pastel-orange" }
+  { name: "Vercel", variant: "pastel-orange" },
 ];
 
 const methodologies = [
@@ -74,7 +72,7 @@ const methodologies = [
   { name: "Clean Architecture", variant: "pastel-purple" },
   { name: "DDD", variant: "pastel-orange" },
   { name: "Event Sourcing", variant: "pastel-pink" },
-  { name: "CQRS", variant: "pastel-cyan" }
+  { name: "CQRS", variant: "pastel-cyan" },
 ];
 
 export function SkillsSection() {
@@ -84,90 +82,107 @@ export function SkillsSection() {
   }, [] as string[]);
 
   return (
-    <section id="skills" className="space-y-6">
-      <div className="space-y-2">
-        <h2 className="text-3xl font-bold">Habilidades Técnicas</h2>
-        <p className="text-muted-foreground no-print">
+    <section id="skills" className={styles.skillsSection}>
+      <div className={styles.headerSection}>
+        <h2 className={styles.mainTitle}>Habilidades Técnicas</h2>
+        <p className={`${styles.subtitle} ${styles.noPrint}`}>
           Tecnologias e ferramentas que domino para criar soluções eficientes
         </p>
       </div>
 
       {/* Web version with progress bars */}
-      <div className="grid gap-6 md:grid-cols-2 no-print">
-        {skillCategories.map((category) => (
-          <Card key={category.title} className="card-hover-pastel">
-            <CardHeader>
-              <CardTitle className="text-xl">{category.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {category.skills.map((skill) => (
-                  <div key={skill.name} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
+      <div className={`${styles.skillsGrid} ${styles.noPrint}`}>
+        {skillCategories.map(category => (
+          <div key={category.title} className={styles.skillCard}>
+            <div className={styles.cardHeader}>
+              <h3 className={styles.cardTitle}>{category.title}</h3>
+            </div>
+            <div className={styles.cardContent}>
+              <div className={styles.skillsList}>
+                {category.skills.map(skill => (
+                  <div key={skill.name} className={styles.skillItem}>
+                    <div className={styles.skillHeader}>
+                      <span className={styles.skillName}>{skill.name}</span>
+                      <span className={styles.skillPercentage}>{skill.level}%</span>
                     </div>
-                    <Progress value={skill.level} className="h-2" />
+                    <div className={styles.progressBar}>
+                      <div className={styles.progressFill} style={{ width: `${skill.level}%` }} />
+                    </div>
                   </div>
                 ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
 
       {/* PDF-only linear format with dashes */}
-      <div className="print-only space-y-4">
-        <div className="space-y-2">
-          <h3 className="font-medium">Linguagens e Tecnologias:</h3>
-          <p className="text-sm leading-relaxed">
-            {allTechnicalSkills.join(' - ')}
-          </p>
+      <div className={`${styles.printSection} ${styles.printOnly}`}>
+        <div className={styles.printSubsection}>
+          <h3 className={styles.printSectionTitle}>Linguagens e Tecnologias:</h3>
+          <p className={styles.printContent}>{allTechnicalSkills.join(" - ")}</p>
         </div>
       </div>
 
       {/* Web version with badges */}
-      <div className="grid gap-6 md:grid-cols-2 no-print">
-        <Card className="card-hover-pastel">
-          <CardHeader>
-            <CardTitle>Ferramentas & Plataformas</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-wrap gap-2">
-              {tools.map((tool) => (
-                <Badge key={tool.name} variant={tool.variant as any}>{tool.name}</Badge>
+      <div className={`${styles.skillsGrid} ${styles.noPrint}`}>
+        <div className={styles.skillCard}>
+          <div className={styles.cardHeader}>
+            <h3 className={styles.cardTitle}>Ferramentas & Plataformas</h3>
+          </div>
+          <div className={styles.cardContent}>
+            <div className={styles.badgeContainer}>
+              {tools.map(tool => (
+                <span
+                  key={tool.name}
+                  className={`${styles.badge} ${
+                    styles[
+                      `badge${tool.variant.split("-")[1].charAt(0).toUpperCase() + tool.variant.split("-")[1].slice(1)}`
+                    ]
+                  }`}
+                >
+                  {tool.name}
+                </span>
               ))}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        <Card className="card-hover-pastel">
-          <CardHeader>
-            <CardTitle>Metodologias & Conceitos</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex flex-wrap gap-2">
-              {methodologies.map((methodology) => (
-                <Badge key={methodology.name} variant={methodology.variant as any}>{methodology.name}</Badge>
+        <div className={styles.skillCard}>
+          <div className={styles.cardHeader}>
+            <h3 className={styles.cardTitle}>Metodologias & Conceitos</h3>
+          </div>
+          <div className={styles.cardContent}>
+            <div className={styles.badgeContainer}>
+              {methodologies.map(methodology => (
+                <span
+                  key={methodology.name}
+                  className={`${styles.badge} ${
+                    styles[
+                      `badge${
+                        methodology.variant.split("-")[1].charAt(0).toUpperCase() +
+                        methodology.variant.split("-")[1].slice(1)
+                      }`
+                    ]
+                  }`}
+                >
+                  {methodology.name}
+                </span>
               ))}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
 
       {/* PDF-only linear format with dashes */}
-      <div className="print-only space-y-4">
-        <div className="space-y-2">
-          <h3 className="font-medium">Ferramentas e Plataformas:</h3>
-          <p className="text-sm leading-relaxed">
-            {tools.map(tool => tool.name).join(' - ')}
-          </p>
+      <div className={`${styles.printSection} ${styles.printOnly}`}>
+        <div className={styles.printSubsection}>
+          <h3 className={styles.printSectionTitle}>Ferramentas e Plataformas:</h3>
+          <p className={styles.printContent}>{tools.map(tool => tool.name).join(" - ")}</p>
         </div>
-        <div className="space-y-2">
-          <h3 className="font-medium">Metodologias e Conceitos:</h3>
-          <p className="text-sm leading-relaxed">
-            {methodologies.map(methodology => methodology.name).join(' - ')}
-          </p>
+        <div className={styles.printSubsection}>
+          <h3 className={styles.printSectionTitle}>Metodologias e Conceitos:</h3>
+          <p className={styles.printContent}>{methodologies.map(methodology => methodology.name).join(" - ")}</p>
         </div>
       </div>
     </section>

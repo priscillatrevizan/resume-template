@@ -1,0 +1,46 @@
+/* Theme Toggle Button Styles */
+.themeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.375rem;
+  border: none;
+  background-color: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.themeButton:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.themeButton:focus {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.themeButton:active {
+  transform: scale(0.95);
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  transition: all 0.2s ease;
+}
+
+/* Animation for icon transition */
+.themeButton:hover .icon {
+  transform: rotate(10deg);
+}
+
+@media print {
+  .themeButton {
+    display: none !important;
+  }
+}
