@@ -58,10 +58,9 @@ const socialLinks = [
 interface AppSidebarProps {
   onNavigate: (section: string) => void;
   activeSection: string;
-  onShowPrintPreview?: () => void;
 }
 
-export function AppSidebar({ onNavigate, activeSection, onShowPrintPreview }: AppSidebarProps) {
+export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
   const handleNavigation = (sectionId: string) => {
     onNavigate(sectionId);
     const element = document.getElementById(sectionId);

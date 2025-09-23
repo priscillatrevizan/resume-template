@@ -1,21 +1,21 @@
-import { Button } from "./ui/button";
 import { Download } from "lucide-react";
 import { toast } from "sonner";
+import { Button } from "./ui/button";
 
 export function ExportPdfButton() {
   const handlePrint = () => {
     // Simply trigger print dialog - @media print will handle styling
     window.print();
-    
+
     // Show success message
     toast.success("Diálogo de impressão aberto!", {
-      description: "Use 'Salvar como PDF' para salvar ou 'Imprimir' conforme sua necessidade."
+      description: "Use o botão 'Imprimir' conforme sua necessidade.",
     });
   };
 
   return (
-    <Button 
-      onClick={handlePrint} 
+    <Button
+      onClick={handlePrint}
       variant="outline"
       size="sm"
       className="export-pdf-btn gap-2 transition-all duration-200 shadow-sm hover:shadow-md focus-pastel-blue"
