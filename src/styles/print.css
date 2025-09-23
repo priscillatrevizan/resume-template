@@ -1,0 +1,248 @@
+/* Unified Print CSS - Zero Margin Solution */
+@media print {
+
+  /* Force zero margins on page */
+  @page {
+    margin: 0 !important;
+    padding: 0 !important;
+    size: A4;
+  }
+
+  /* Reset all elements */
+  * {
+    box-sizing: border-box !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Force root elements to have no spacing */
+  html {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    font-size: 11pt !important;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    color: #000 !important;
+    background: #fff !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Hide everything except resume content */
+  body>*:not([data-sidebar-inset]):not(#print-preview-page) {
+    display: none !important;
+  }
+
+  /* Special handling for print preview page */
+  #print-preview-page {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #print-preview-page>* {
+    display: none !important;
+  }
+
+  #print-preview-page .print-preview-wrapper {
+    display: block !important;
+    background: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: flex-start !important;
+  }
+
+  #print-preview-page .print-preview-content {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+    min-height: auto !important;
+    width: 100% !important;
+  }
+
+  [data-sidebar]:not([data-sidebar-inset]) {
+    display: none !important;
+  }
+
+  header,
+  footer,
+  .sidebar,
+  .sticky,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Show and position resume content */
+  main {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+  }
+
+  #resume-content {
+    display: block !important;
+    padding: 0.5in !important;
+    margin: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    position: static !important;
+    transform: none !important;
+    top: 0 !important;
+    left: 0 !important;
+    /* Force container to start at very top */
+    margin-top: 0 !important;
+    padding-top: 0.5in !important;
+  }
+
+  /* Special handling for resume content in print preview */
+  #print-preview-page #resume-content {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0.5in !important;
+    margin: 0 !important;
+  }
+
+  /* Override any container classes */
+  .container {
+    max-width: none !important;
+    padding-left: 0.5in !important;
+    padding-right: 0.5in !important;
+    padding-top: 0 !important;
+    padding-bottom: 0.5in !important;
+    margin: 0 !important;
+  }
+
+  /* Remove first child top margin to eliminate space */
+  #resume-content>*:first-child,
+  #resume-content>*:first-child>*:first-child,
+  #resume-content section:first-child,
+  #resume-content section:first-child>*:first-child,
+  #resume-content .space-y-6:first-child,
+  #resume-content .space-y-6:first-child>*:first-child,
+  #resume-content>div:first-child,
+  #resume-content>div:first-child>*:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Special handling for print-only header */
+  .print-only:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* Remove space-y classes in print */
+  .space-y-6,
+  .space-y-12,
+  .space-y-8,
+  .space-y-4,
+  .space-y-2 {
+    gap: 0 !important;
+  }
+
+  .space-y-6>*,
+  .space-y-12>*,
+  .space-y-8>*,
+  .space-y-4>*,
+  .space-y-2>* {
+    margin-top: 0.1in !important;
+    margin-bottom: 0 !important;
+  }
+
+  .space-y-6>*:first-child,
+  .space-y-12>*:first-child,
+  .space-y-8>*:first-child,
+  .space-y-4>*:first-child,
+  .space-y-2>*:first-child {
+    margin-top: 0 !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  /* Hide visual elements */
+  svg,
+  img,
+  button,
+  input,
+  textarea,
+  form {
+    display: none !important;
+  }
+
+  /* Clean badges */
+  [data-slot="badge"],
+  .badge {
+    background: none !important;
+    border: none !important;
+    color: #000 !important;
+    font-weight: normal !important;
+    padding: 0 2pt !important;
+    margin: 0 2pt !important;
+    display: inline !important;
+  }
+
+  /* Typography with controlled spacing */
+  h1 {
+    font-size: 16pt !important;
+    margin: 0 0 0.1in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  h2 {
+    font-size: 14pt !important;
+    margin: 0.2in 0 0.1in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  h3 {
+    font-size: 12pt !important;
+    margin: 0.1in 0 0.05in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  h4 {
+    font-size: 11pt !important;
+    margin: 0.1in 0 0.05in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  p,
+  li {
+    font-size: 11pt !important;
+    margin: 0.05in 0 !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  /* First heading special case - no top margin */
+  #resume-content h1:first-child,
+  #resume-content>div:first-child h1:first-child {
+    margin-top: 0 !important;
+  }
+
+  /* Remove all colors and decorations */
+  * {
+    background-color: transparent !important;
+    background-image: none !important;
+    color: #000 !important;
+    border-color: #000 !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
