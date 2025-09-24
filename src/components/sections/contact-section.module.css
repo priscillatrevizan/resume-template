@@ -1,0 +1,239 @@
+/* Contact Section Styles */
+.contactSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.headerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mainTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+  color: hsl(var(--foreground));
+}
+
+.subtitle {
+  color: hsl(var(--muted-foreground));
+}
+
+.gridContainer {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactInfoList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactInfoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.iconContainer {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: hsla(var(--primary), 0.1);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: hsl(var(--primary));
+}
+
+.contactDetails {
+  flex: 1;
+}
+
+.contactLabel {
+  font-weight: 500;
+  margin: 0;
+  color: hsl(var(--foreground));
+}
+
+.contactLink {
+  color: hsl(var(--muted-foreground));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactLink:hover {
+  color: hsl(var(--primary));
+}
+
+.printOnly {
+  display: none;
+}
+
+@media print {
+  .printOnly {
+    display: block;
+  }
+}
+
+.printContactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.printContactTitle {
+  font-weight: 500;
+  margin: 0;
+  color: hsl(var(--foreground));
+}
+
+.printContactList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.printContactList p {
+  margin: 0;
+}
+
+.printContactList strong {
+  font-weight: 600;
+}
+
+.availabilitySection {
+  padding-top: 1.5rem;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.availabilityTitle {
+  font-weight: 500;
+  margin: 0 0 0.75rem 0;
+  color: hsl(var(--foreground));
+}
+
+.availabilityList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.availabilityList p {
+  margin: 0;
+}
+
+.noPrint {
+  display: block;
+}
+
+@media print {
+  .noPrint {
+    display: none !important;
+  }
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formRow {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .formRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formFieldFull {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.submitButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.buttonIcon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.printContactAlternative {
+  display: none;
+}
+
+@media print {
+  .printContactAlternative {
+    display: block;
+  }
+}
+
+.printContactAlternativeTitle {
+  font-weight: 500;
+  margin: 0 0 0.75rem 0;
+  color: hsl(var(--foreground));
+}
+
+.printContactAlternativeContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.printContactAlternativeContent p {
+  margin: 0;
+}
+
+.printContactAlternativeList {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}

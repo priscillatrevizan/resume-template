@@ -1,43 +1,44 @@
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import { Label } from "../ui/label";
-import { Mail, Phone, MapPin, Linkedin, Github, Send } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState } from "react";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
+import { Button } from "../ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
+import { Textarea } from "../ui/textarea";
+import styles from "./contact-section.module.css";
 
 const contactInfo = [
   {
     icon: Mail,
     label: "Email",
     value: "seu.email@exemplo.com",
-    href: "mailto:seu.email@exemplo.com"
+    href: "mailto:seu.email@exemplo.com",
   },
   {
     icon: Phone,
     label: "Telefone",
     value: "+55 (11) 99999-9999",
-    href: "tel:+5511999999999"
+    href: "tel:+5511999999999",
   },
   {
     icon: MapPin,
     label: "Localização",
     value: "São Paulo, Brasil",
-    href: "https://maps.google.com/?q=São+Paulo,+Brasil"
+    href: "https://maps.google.com/?q=São+Paulo,+Brasil",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
     value: "linkedin.com/in/seu-perfil",
-    href: "https://linkedin.com/in/seu-perfil"
+    href: "https://linkedin.com/in/seu-perfil",
   },
   {
     icon: Github,
     label: "GitHub",
     value: "github.com/seu-usuario",
-    href: "https://github.com/seu-usuario"
-  }
+    href: "https://github.com/seu-usuario",
+  },
 ];
 
 export function ContactSection() {
@@ -45,7 +46,7 @@ export function ContactSection() {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -57,43 +58,41 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simular envio do formulário
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     toast.success("Mensagem enviada com sucesso! Entrarei em contato em breve.");
     setFormData({ name: "", email: "", subject: "", message: "" });
     setIsSubmitting(false);
   };
 
   return (
-    <section id="contact" className="space-y-6">
-      <div className="space-y-2">
-        <h2 className="text-3xl font-bold">Entre em Contato</h2>
-        <p className="text-muted-foreground">
-          Interessado em trabalhar juntos? Vamos conversar sobre seu próximo projeto!
-        </p>
+    <section id="contact" className={styles.contactSection}>
+      <div className={styles.headerSection}>
+        <h2 className={styles.mainTitle}>Entre em Contato</h2>
+        <p className={styles.subtitle}>Interessado em trabalhar juntos? Vamos conversar sobre seu próximo projeto!</p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className={styles.gridContainer}>
         <Card>
           <CardHeader>
             <CardTitle>Informações de Contato</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="space-y-4">
-              {contactInfo.map((item) => (
-                <div key={item.label} className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <item.icon className="h-5 w-5 text-primary" />
+          <CardContent className={styles.cardContent}>
+            <div className={styles.contactInfoList}>
+              {contactInfo.map(item => (
+                <div key={item.label} className={styles.contactInfoItem}>
+                  <div className={styles.iconContainer}>
+                    <item.icon className={styles.icon} />
                   </div>
-                  <div className="flex-1">
-                    <p className="font-medium">{item.label}</p>
-                    <a 
+                  <div className={styles.contactDetails}>
+                    <p className={styles.contactLabel}>{item.label}</p>
+                    <a
                       href={item.href}
-                      target={item.href.startsWith('http') ? '_blank' : undefined}
-                      rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className={styles.contactLink}
                     >
                       {item.value}
                     </a>
@@ -103,20 +102,32 @@ export function ContactSection() {
             </div>
 
             {/* PDF-only clean contact list */}
-            <div className="print-only space-y-3">
-              <h4 className="font-medium">Contato:</h4>
-              <div className="space-y-2 text-sm">
-                <p><strong>Email:</strong> seu.email@exemplo.com</p>
-                <p><strong>Telefone:</strong> +55 (11) 99999-9999</p>
-                <p><strong>Localização:</strong> São Paulo, Brasil</p>
-                <p><strong>LinkedIn:</strong> linkedin.com/in/seu-perfil</p>
-                <p><strong>GitHub:</strong> github.com/seu-usuario</p>
+            <div className={styles.printOnly}>
+              <div className={styles.printContactInfo}>
+                <h4 className={styles.printContactTitle}>Contato:</h4>
+                <div className={styles.printContactList}>
+                  <p>
+                    <strong>Email:</strong> seu.email@exemplo.com
+                  </p>
+                  <p>
+                    <strong>Telefone:</strong> +55 (11) 99999-9999
+                  </p>
+                  <p>
+                    <strong>Localização:</strong> São Paulo, Brasil
+                  </p>
+                  <p>
+                    <strong>LinkedIn:</strong> linkedin.com/in/seu-perfil
+                  </p>
+                  <p>
+                    <strong>GitHub:</strong> github.com/seu-usuario
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="pt-6 border-t">
-              <h4 className="font-medium mb-3">Disponibilidade</h4>
-              <div className="space-y-2 text-sm text-muted-foreground">
+            <div className={styles.availabilitySection}>
+              <h4 className={styles.availabilityTitle}>Disponibilidade</h4>
+              <div className={styles.availabilityList}>
                 <p>• Disponível para projetos freelance</p>
                 <p>• Aberto para oportunidades full-time</p>
                 <p>• Consultorias técnicas</p>
@@ -126,14 +137,14 @@ export function ContactSection() {
           </CardContent>
         </Card>
 
-        <Card className="no-print">
+        <Card className={styles.noPrint}>
           <CardHeader>
             <CardTitle>Enviar Mensagem</CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
+            <form onSubmit={handleSubmit} className={styles.formContainer}>
+              <div className={styles.formRow}>
+                <div className={styles.formField}>
                   <Label htmlFor="name">Nome *</Label>
                   <Input
                     id="name"
@@ -144,7 +155,7 @@ export function ContactSection() {
                     required
                   />
                 </div>
-                <div className="space-y-2">
+                <div className={styles.formField}>
                   <Label htmlFor="email">Email *</Label>
                   <Input
                     id="email"
@@ -157,8 +168,8 @@ export function ContactSection() {
                   />
                 </div>
               </div>
-              
-              <div className="space-y-2">
+
+              <div className={styles.formFieldFull}>
                 <Label htmlFor="subject">Assunto *</Label>
                 <Input
                   id="subject"
@@ -169,8 +180,8 @@ export function ContactSection() {
                   required
                 />
               </div>
-              
-              <div className="space-y-2">
+
+              <div className={styles.formFieldFull}>
                 <Label htmlFor="message">Mensagem *</Label>
                 <Textarea
                   id="message"
@@ -182,17 +193,13 @@ export function ContactSection() {
                   required
                 />
               </div>
-              
-              <Button 
-                type="submit" 
-                className="w-full"
-                disabled={isSubmitting}
-              >
+
+              <Button type="submit" className={styles.submitButton} disabled={isSubmitting}>
                 {isSubmitting ? (
                   "Enviando..."
                 ) : (
                   <>
-                    <Send className="h-4 w-4 mr-2" />
+                    <Send className={styles.buttonIcon} />
                     Enviar Mensagem
                   </>
                 )}
@@ -202,13 +209,16 @@ export function ContactSection() {
         </Card>
 
         {/* PDF-only contact message alternative */}
-        <div className="print-only">
-          <h3 className="font-medium mb-3">Como entrar em contato:</h3>
-          <div className="space-y-2 text-sm">
-            <p>Para discussões sobre projetos, oportunidades ou consultorias, entre em contato através dos canais listados acima.</p>
+        <div className={styles.printContactAlternative}>
+          <h3 className={styles.printContactAlternativeTitle}>Como entrar em contato:</h3>
+          <div className={styles.printContactAlternativeContent}>
+            <p>
+              Para discussões sobre projetos, oportunidades ou consultorias, entre em contato através dos canais
+              listados acima.
+            </p>
             <p>Respondo a todas as mensagens em até 24 horas durante dias úteis.</p>
             <p>Estou disponível para:</p>
-            <ul className="ml-4 space-y-1">
+            <ul className={styles.printContactAlternativeList}>
               <li>• Projetos de desenvolvimento web</li>
               <li>• Consultorias técnicas</li>
               <li>• Oportunidades full-time</li>

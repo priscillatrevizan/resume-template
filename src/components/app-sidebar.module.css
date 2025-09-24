@@ -1,0 +1,95 @@
+/* App Sidebar Styles */
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+}
+
+.sidebarTrigger {
+  height: 2rem;
+  width: 2rem;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebarTrigger {
+    display: flex;
+  }
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.75rem 0.5rem 0.75rem;
+}
+
+.avatar {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.75rem;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.profileTitle {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.menuButton {
+  cursor: pointer;
+}
+
+.menuIcon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.infoSection {
+  padding: 0 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--muted-foreground);
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.infoIcon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.socialIcon {
+  height: 1rem;
+  width: 1rem;
+}
+
+@media print {
+
+  .sidebarHeader,
+  .profileSection,
+  .infoSection {
+    display: none !important;
+  }
+}

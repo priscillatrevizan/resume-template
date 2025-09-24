@@ -1,6 +1,6 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import styles from "./theme-toggle.module.css";
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -21,8 +21,8 @@ export function ThemeToggle() {
   };
 
   return (
-    <Button variant="ghost" size="icon" onClick={toggleTheme} className="h-9 w-9" aria-label="Toggle theme">
-      {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-    </Button>
+    <button onClick={toggleTheme} className={styles.themeButton} aria-label="Toggle theme">
+      {theme === "light" ? <Moon className={styles.icon} /> : <Sun className={styles.icon} />}
+    </button>
   );
 }

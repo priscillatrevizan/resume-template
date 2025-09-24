@@ -1,0 +1,143 @@
+/* App Main Styles */
+.app {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.mainContent {
+  flex: 1;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: hsla(var(--background), 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+@supports (backdrop-filter: blur(8px)) {
+  .header {
+    background-color: hsla(var(--background), 0.6);
+  }
+}
+
+.headerContent {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1.5rem;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sidebarTrigger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebarTrigger {
+    display: flex;
+  }
+}
+
+.separator {
+  display: none;
+  height: 1.5rem;
+  width: 1px;
+  background-color: hsl(var(--border));
+}
+
+@media (max-width: 768px) {
+  .separator {
+    display: block;
+  }
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.main {
+  flex: 1;
+}
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.sectionSeparator {
+  height: 1px;
+  background-color: hsl(var(--border));
+  border: none;
+  margin: 0;
+}
+
+.noPrint {
+  display: block;
+}
+
+.footer {
+  border-top: 1px solid hsl(var(--border));
+  padding: 1.5rem;
+}
+
+.footerContainer {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: hsl(var(--muted-foreground));
+}
+
+@media (min-width: 640px) {
+  .footerContent {
+    flex-direction: row;
+  }
+}
+
+.footerText {
+  margin: 0;
+}
+
+@media print {
+  .noPrint {
+    display: none !important;
+  }
+
+  .header {
+    display: none !important;
+  }
+
+  .footer {
+    display: none !important;
+  }
+
+  .container {
+    padding: 0;
+    gap: 2rem;
+  }
+}

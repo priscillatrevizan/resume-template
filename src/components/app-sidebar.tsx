@@ -1,4 +1,5 @@
 import { Briefcase, Code, FolderOpen, Github, Linkedin, Mail, MapPin, Phone, User } from "lucide-react";
+import styles from "./app-sidebar.module.css";
 import { ThemeToggle } from "./theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
@@ -72,20 +73,20 @@ export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
   return (
     <Sidebar variant="sidebar" collapsible="icon">
       <SidebarHeader>
-        <div className="flex items-center justify-between px-3 py-2">
-          <SidebarTrigger className="h-8 w-8 hidden md:flex" />
+        <div className={styles.sidebarHeader}>
+          <SidebarTrigger className={styles.sidebarTrigger} />
           <div className="group-data-[collapsible=icon]:hidden">
             <ThemeToggle />
           </div>
         </div>
-        <div className="flex items-center gap-3 px-3 pb-2">
-          <Avatar className="h-10 w-10">
+        <div className={styles.profileSection}>
+          <Avatar className={styles.avatar}>
             <AvatarImage src="/api/placeholder/100/100" alt="Seu Nome" />
             <AvatarFallback>SN</AvatarFallback>
           </Avatar>
           <div className="group-data-[collapsible=icon]:hidden">
-            <h2 className="text-lg font-semibold">Seu Nome</h2>
-            <p className="text-sm text-muted-foreground">Desenvolvedor Full Stack</p>
+            <h2 className={styles.profileName}>Seu Nome</h2>
+            <p className={styles.profileTitle}>Desenvolvedor Full Stack</p>
           </div>
         </div>
       </SidebarHeader>
@@ -99,9 +100,9 @@ export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
                 <SidebarMenuButton
                   onClick={() => handleNavigation(item.id)}
                   isActive={activeSection === item.id}
-                  className="cursor-pointer"
+                  className={styles.menuButton}
                 >
-                  <item.icon className="h-4 w-4" />
+                  <item.icon className={styles.menuIcon} />
                   <span>{item.title}</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -111,17 +112,17 @@ export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
 
         <SidebarGroup className="group-data-[collapsible=icon]:hidden">
           <SidebarGroupLabel>Informações</SidebarGroupLabel>
-          <div className="px-3 space-y-2 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4" />
+          <div className={styles.infoSection}>
+            <div className={styles.infoItem}>
+              <MapPin className={styles.infoIcon} />
               <span>São Paulo, Brasil</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Phone className="h-4 w-4" />
+            <div className={styles.infoItem}>
+              <Phone className={styles.infoIcon} />
               <span>+55 (11) 99999-9999</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Mail className="h-4 w-4" />
+            <div className={styles.infoItem}>
+              <Mail className={styles.infoIcon} />
               <span>seu.email@exemplo.com</span>
             </div>
           </div>
@@ -129,14 +130,14 @@ export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
       </SidebarContent>
 
       <SidebarFooter>
-        <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+        <SidebarGroup>
           <SidebarGroupLabel>Redes Sociais</SidebarGroupLabel>
           <SidebarMenu>
             {socialLinks.map(link => (
               <SidebarMenuItem key={link.title}>
                 <SidebarMenuButton asChild>
-                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
-                    <link.icon className="h-4 w-4" />
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" className={styles.menuButton}>
+                    <link.icon className={styles.socialIcon} />
                     <span>{link.title}</span>
                   </a>
                 </SidebarMenuButton>

@@ -1,0 +1,353 @@
+/* Sidebar Wrapper */
+.sidebarWrapper {
+  display: flex;
+  min-height: 100svh;
+  width: 100%;
+  --sidebar-width: 16rem;
+  --sidebar-width-icon: 3rem;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: hsl(var(--sidebar-background));
+  color: hsl(var(--sidebar-foreground));
+  display: flex;
+  height: 100%;
+  width: var(--sidebar-width);
+  flex-direction: column;
+}
+
+.sidebarDesktop {
+  position: relative;
+  z-index: 10;
+  display: none;
+  height: 100svh;
+  width: var(--sidebar-width);
+  transition: left 200ms ease-linear, right 200ms ease-linear, width 200ms ease-linear;
+}
+
+@media (min-width: 768px) {
+  .sidebarDesktop {
+    display: flex;
+  }
+}
+
+.sidebarLeft {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.sidebarCollapsed .sidebarLeft {
+  left: calc(var(--sidebar-width) * -1);
+}
+
+.sidebarIconMode {
+  width: var(--sidebar-width-icon);
+}
+
+.sidebarGap {
+  position: relative;
+  width: var(--sidebar-width);
+  background-color: transparent;
+  transition: width 200ms ease-linear;
+}
+
+.sidebarGapCollapsed {
+  width: 0;
+}
+
+.sidebarGapIcon {
+  width: var(--sidebar-width-icon);
+}
+
+/* Sidebar Container */
+.sidebarContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  height: 100svh;
+  width: var(--sidebar-width);
+  transition: left 200ms ease-linear, right 200ms ease-linear, width 200ms ease-linear;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sidebarContainer {
+    display: flex;
+  }
+}
+
+.sidebarContainerLeft {
+  left: 0;
+}
+
+.sidebarContainerRight {
+  right: 0;
+}
+
+.sidebarContainerCollapsed.sidebarContainerLeft {
+  left: calc(var(--sidebar-width) * -1);
+}
+
+.sidebarContainerCollapsed.sidebarContainerRight {
+  right: calc(var(--sidebar-width) * -1);
+}
+
+.sidebarContainerIcon {
+  width: var(--sidebar-width-icon);
+}
+
+.sidebarContainerIcon.sidebarContainerLeft {
+  left: 0;
+}
+
+.sidebarContainerIcon.sidebarContainerRight {
+  right: 0;
+}
+
+.sidebarInner {
+  background-color: hsl(var(--sidebar-background));
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.sidebarFloating .sidebarInner {
+  border: 1px solid hsl(var(--sidebar-border));
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+/* Sidebar Trigger */
+.sidebarTrigger {
+  height: 1.75rem;
+  width: 1.75rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  color: hsl(var(--sidebar-foreground));
+  transition: background-color 150ms;
+}
+
+.sidebarTrigger:hover {
+  background-color: hsl(var(--sidebar-accent));
+  color: hsl(var(--sidebar-accent-foreground));
+}
+
+.sidebarTrigger:focus-visible {
+  outline: 2px solid hsl(var(--sidebar-ring));
+  outline-offset: 2px;
+}
+
+/* Sidebar Inset */
+.sidebarInset {
+  background-color: hsl(var(--background));
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex: 1;
+  flex-direction: column;
+}
+
+/* Sidebar Header */
+.sidebarHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+/* Sidebar Content */
+.sidebarContent {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: auto;
+}
+
+/* Sidebar Content icon mode */
+.sidebarContentIcon {
+  overflow: hidden;
+}
+
+.sidebarIcon .sidebarContent {
+  overflow: hidden;
+}
+
+.sidebarIcon .sidebarGroupLabel {
+  margin-top: -2rem;
+  opacity: 0;
+}
+
+.sidebarIcon .sidebarMenuButton {
+  height: 2rem !important;
+  width: 2rem !important;
+  padding: 0.5rem !important;
+  justify-content: center;
+}
+
+.sidebarIcon .sidebarMenuButton span {
+  display: none;
+}
+
+/* Sidebar Footer */
+.sidebarFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+/* Sidebar Group */
+.sidebarGroup {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+/* Sidebar Group Label */
+.sidebarGroupLabel {
+  color: hsl(var(--sidebar-foreground) / 0.7);
+  display: flex;
+  height: 2rem;
+  flex-shrink: 0;
+  align-items: center;
+  border-radius: 0.375rem;
+  padding: 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  outline: none;
+  transition: margin 200ms ease-linear, opacity 200ms ease-linear;
+}
+
+.sidebarGroupLabel:focus-visible {
+  outline: 2px solid hsl(var(--sidebar-ring));
+}
+
+.sidebarIcon .sidebarGroupLabel {
+  margin-top: -2rem;
+  opacity: 0;
+}
+
+/* Sidebar Menu */
+.sidebarMenu {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar Menu Item */
+.sidebarMenuItem {
+  position: relative;
+}
+
+/* Sidebar Menu Button */
+.sidebarMenuButton {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  text-align: left;
+  font-size: 0.875rem;
+  outline: none;
+  transition: width 150ms, height 150ms, padding 150ms;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.sidebarMenuButton:hover {
+  background-color: hsl(var(--sidebar-accent));
+  color: hsl(var(--sidebar-accent-foreground));
+}
+
+.sidebarMenuButton:focus-visible {
+  outline: 2px solid hsl(var(--sidebar-ring));
+}
+
+.sidebarMenuButton:active {
+  background-color: hsl(var(--sidebar-accent));
+  color: hsl(var(--sidebar-accent-foreground));
+}
+
+.sidebarMenuButton:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.sidebarMenuButtonActive {
+  background-color: hsl(var(--sidebar-accent));
+  font-weight: 500;
+  color: hsl(var(--sidebar-accent-foreground));
+}
+
+.sidebarIcon .sidebarMenuButton {
+  height: 2rem !important;
+  width: 2rem !important;
+  padding: 0.5rem !important;
+}
+
+/* Emulate Tailwind's group-data-[collapsible=icon]:hidden
+   When the sidebar wrapper has .sidebarIcon (collapsed to icons),
+   hide any element that was using the Tailwind token
+   group-data-[collapsible=icon]:hidden by matching the exact
+   class token in the class attribute. */
+.sidebarIcon [class~="group-data-[collapsible=icon]:hidden"] {
+  display: none;
+}
+
+/* Separator */
+.sidebarSeparator {
+  background-color: hsl(var(--sidebar-border));
+  margin: 0 0.5rem;
+  width: auto;
+  height: 1px;
+  border: none;
+}
+
+/* Screen reader only */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Hidden class */
+.hidden {
+  display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  .sidebarDesktop {
+    display: none;
+  }
+}

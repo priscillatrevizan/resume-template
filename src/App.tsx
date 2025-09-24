@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./App.module.css";
 import { AppSidebar } from "./components/app-sidebar";
 import { ExportPdfButton } from "./components/export-pdf-button";
 import { AboutSection } from "./components/sections/about-section";
@@ -6,7 +7,6 @@ import { ContactSection } from "./components/sections/contact-section";
 import { ExperienceSection } from "./components/sections/experience-section";
 import { ProjectsSection } from "./components/sections/projects-section";
 import { SkillsSection } from "./components/sections/skills-section";
-import { Separator } from "./components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
 import { Toaster } from "./components/ui/sonner";
 
@@ -36,44 +36,41 @@ export default function App() {
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen w-full">
-        <AppSidebar
-          onNavigate={setActiveSection}
-          activeSection={activeSection}
-        />
+      <div className={styles.app}>
+        <AppSidebar onNavigate={setActiveSection} activeSection={activeSection} />
 
-        <SidebarInset className="flex-1">
-          <header className="sticky top-0 z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
-            <div className="flex h-16 items-center justify-between gap-4 px-6">
-              <div className="flex items-center gap-4">
-                <SidebarTrigger className="md:hidden" />
-                <Separator orientation="vertical" className="h-6 md:hidden" />
+        <SidebarInset className={styles.mainContent}>
+          <header className={styles.header}>
+            <div className={styles.headerContent}>
+              <div className={styles.headerLeft}>
+                <SidebarTrigger className={styles.sidebarTrigger} />
+                <div className={styles.separator} />
               </div>
-              <div className="flex items-center gap-2">
+              <div className={styles.headerRight}>
                 <ExportPdfButton />
               </div>
             </div>
           </header>
 
-          <main className="flex-1">
-            <div id="resume-content" className="container max-w-6xl mx-auto p-6 space-y-12">
+          <main className={styles.main}>
+            <div id="resume-content" className={styles.container}>
               <AboutSection />
-              <Separator className="no-print" />
+              <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
               <ExperienceSection />
-              <Separator className="no-print" />
+              <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
               <SkillsSection />
-              <Separator className="no-print" />
+              <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
               <ProjectsSection />
-              <Separator className="no-print" />
+              <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
               <ContactSection />
             </div>
           </main>
 
-          <footer className="border-t py-6 px-6">
-            <div className="container max-w-6xl mx-auto">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-                <p>© 2024 João Silva. Todos os direitos reservados.</p>
-                <p>Desenvolvido com React, TypeScript e Tailwind CSS</p>
+          <footer className={styles.footer}>
+            <div className={styles.footerContainer}>
+              <div className={styles.footerContent}>
+                <p className={styles.footerText}>© 2024 João Silva. Todos os direitos reservados.</p>
+                <p className={styles.footerText}>Desenvolvido com React, TypeScript e CSS Modules</p>
               </div>
             </div>
           </footer>
