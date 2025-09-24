@@ -1,4 +1,5 @@
 import { Briefcase, Code, FolderOpen, Github, Linkedin, Mail, MapPin, Phone, User } from "lucide-react";
+import styles from "./app-sidebar.module.css";
 import { ThemeToggle } from "./theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
@@ -13,7 +14,6 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
 } from "./ui/sidebar";
-import styles from "./app-sidebar.module.css";
 
 const menuItems = [
   {
@@ -130,7 +130,7 @@ export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
       </SidebarContent>
 
       <SidebarFooter>
-        <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+        <SidebarGroup>
           <SidebarGroupLabel>Redes Sociais</SidebarGroupLabel>
           <SidebarMenu>
             {socialLinks.map(link => (

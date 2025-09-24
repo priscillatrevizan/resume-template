@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./App.module.css";
 import { AppSidebar } from "./components/app-sidebar";
 import { ExportPdfButton } from "./components/export-pdf-button";
 import { AboutSection } from "./components/sections/about-section";
@@ -8,7 +9,6 @@ import { ProjectsSection } from "./components/sections/projects-section";
 import { SkillsSection } from "./components/sections/skills-section";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
 import { Toaster } from "./components/ui/sonner";
-import styles from "./App.module.css";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("about");

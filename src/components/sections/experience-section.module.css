@@ -15,11 +15,11 @@
   font-size: 1.875rem;
   font-weight: 700;
   line-height: 2.25rem;
-  color: var(--foreground);
+  color: hsl(var(--foreground));
 }
 
 .subtitle {
-  color: var(--muted-foreground);
+  color: hsl(var(--muted-foreground));
 }
 
 .experienceList {
@@ -30,16 +30,16 @@
 
 .experienceCard {
   position: relative;
-  background-color: var(--card);
-  border: 1px solid var(--border);
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   transition: all 0.2s ease;
 }
 
 .experienceCard:hover {
-  box-shadow: 0 8px 25px -8px var(--pastel-blue),
-    0 4px 15px -4px var(--pastel-purple);
+  box-shadow: 0 8px 25px -8px hsl(var(--pastel-blue)),
+    0 4px 15px -4px hsl(var(--pastel-purple));
   transform: translateY(-2px);
 }
 
@@ -71,7 +71,7 @@
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.75rem;
-  color: var(--card-foreground);
+  color: hsl(var(--card-foreground));
   margin: 0;
 }
 
@@ -79,7 +79,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--primary);
+  color: hsl(var(--primary));
 }
 
 .companyIcon {
@@ -97,7 +97,7 @@
   gap: 0.25rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: var(--muted-foreground);
+  color: hsl(var(--muted-foreground));
 }
 
 @media (min-width: 640px) {
@@ -140,7 +140,7 @@
 }
 
 .bullet {
-  color: var(--primary);
+  color: hsl(var(--primary));
   margin-top: 0.5rem;
   font-size: 0.75rem;
   line-height: 1rem;
@@ -148,7 +148,7 @@
 
 .separator {
   height: 1px;
-  background-color: var(--border);
+  background-color: hsl(var(--border));
   border: none;
   margin: 0;
 }
@@ -156,7 +156,7 @@
 .sectionTitle {
   font-weight: 500;
   margin: 0;
-  color: var(--card-foreground);
+  color: hsl(var(--card-foreground));
 }
 
 .technologiesSection {
@@ -184,43 +184,43 @@
 }
 
 .badgeBlue {
-  background-color: var(--pastel-blue);
-  color: var(--pastel-blue-foreground);
+  background-color: hsl(var(--pastel-blue));
+  color: hsl(var(--pastel-blue-foreground));
 }
 
 .badgeGreen {
-  background-color: var(--pastel-green);
-  color: var(--pastel-green-foreground);
+  background-color: hsl(var(--pastel-green));
+  color: hsl(var(--pastel-green-foreground));
 }
 
 .badgePurple {
-  background-color: var(--pastel-purple);
-  color: var(--pastel-purple-foreground);
+  background-color: hsl(var(--pastel-purple));
+  color: hsl(var(--pastel-purple-foreground));
 }
 
 .badgeOrange {
-  background-color: var(--pastel-orange);
-  color: var(--pastel-orange-foreground);
+  background-color: hsl(var(--pastel-orange));
+  color: hsl(var(--pastel-orange-foreground));
 }
 
 .badgePink {
-  background-color: var(--pastel-pink);
-  color: var(--pastel-pink-foreground);
+  background-color: hsl(var(--pastel-pink));
+  color: hsl(var(--pastel-pink-foreground));
 }
 
 .badgeCyan {
-  background-color: var(--pastel-cyan);
-  color: var(--pastel-cyan-foreground);
+  background-color: hsl(var(--pastel-cyan));
+  color: hsl(var(--pastel-cyan-foreground));
 }
 
 .badgeYellow {
-  background-color: var(--pastel-yellow);
-  color: var(--pastel-yellow-foreground);
+  background-color: hsl(var(--pastel-yellow));
+  color: hsl(var(--pastel-yellow-foreground));
 }
 
 .badgeIndigo {
-  background-color: var(--pastel-indigo);
-  color: var(--pastel-indigo-foreground);
+  background-color: hsl(var(--pastel-indigo));
+  color: hsl(var(--pastel-indigo-foreground));
 }
 
 .highlightsSection {

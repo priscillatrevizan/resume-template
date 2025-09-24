@@ -14,10 +14,7 @@ export function ExportPdfButton() {
   };
 
   return (
-    <button
-      onClick={handlePrint}
-      className={styles.exportButton}
-    >
+    <button onClick={handlePrint} className={styles.exportButton}>
       <Download className={styles.icon} />
       Exportar PDF
     </button>
