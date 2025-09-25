@@ -1,26 +1,32 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import styles from "./App.module.css";
 import { AppSidebar } from "./components/app-sidebar";
 import { ExportPdfButton } from "./components/export-pdf-button";
-import { AboutSection } from "./components/sections/about-section";
-import { ContactSection } from "./components/sections/contact-section";
-import { ExperienceSection } from "./components/sections/experience-section";
-import { ProjectsSection } from "./components/sections/projects-section";
-import { SkillsSection } from "./components/sections/skills-section";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
 import { Toaster } from "./components/ui/sonner";
+import ResumeContainer from "./features/resume/components/ResumeContainer";
 import { useResume } from "./features/resume/context";
+const AboutSection = lazy(() =>
+  import("./components/sections/about-section").then(m => ({ default: (m as any).AboutSection }))
+);
+const ContactSection = lazy(() =>
+  import("./components/sections/contact-section").then(m => ({ default: (m as any).ContactSection }))
+);
+const ExperienceSection = lazy(() =>
+  import("./components/sections/experience-section").then(m => ({ default: (m as any).ExperienceSection }))
+);
+const ProjectsSection = lazy(() =>
+  import("./components/sections/projects-section").then(m => ({ default: (m as any).ProjectsSection }))
+);
+const SkillsSection = lazy(() =>
+  import("./components/sections/skills-section").then(m => ({ default: (m as any).SkillsSection }))
+);
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("about");
+
   const data = useResume();
   const profile = data.profile;
-
-  useEffect(() => {
-    if (profile?.name && typeof document !== "undefined") {
-      document.title = profile.name;
-    }
-  }, [profile?.name]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,15 +72,19 @@ export default function App() {
 
           <main className={styles.main}>
             <div id="resume-content" className={styles.container}>
-              <AboutSection />
-              <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
-              <ExperienceSection />
-              <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
-              <SkillsSection />
-              <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
-              <ProjectsSection />
-              <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
-              <ContactSection />
+              <ResumeContainer>
+                <Suspense fallback={<div>Carregando seção...</div>}>
+                  <AboutSection />
+                  <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
+                  <ExperienceSection />
+                  <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
+                  <SkillsSection />
+                  <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
+                  <ProjectsSection />
+                  <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
+                  <ContactSection />
+                </Suspense>
+              </ResumeContainer>
             </div>
           </main>
 
