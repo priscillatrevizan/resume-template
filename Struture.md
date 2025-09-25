@@ -69,20 +69,20 @@ src/
   - mover e simplificar `DataContext.tsx` para `DataProvider` que usa `transformResume` e fornece o contexto.
   - exportar `DataProvider` e `useResume` no `context/index.ts`.
 
-- [ ] 4. Criar `src/features/resume/hooks/useResume.ts`
+- [x] 4.  Criar `src/features/resume/hooks/useResume.ts`
 
-  - mover o hook atual `useResume` para aqui e exportar via `context/index.ts`.
+- mover o hook atual `useResume` para aqui e exportar via `context/index.ts`.
 
-- [ ] 5. Adicionar barrels (`index.ts`) nas subpastas e no feature root
+- [x] 5.  Adicionar barrels (`index.ts`) nas subpastas e no feature root
 
-  - atualizar imports em `src/main.tsx` e `src/App.tsx` para apontar para `features/resume` quando aplicável.
+- atualizar imports em `src/main.tsx` e `src/App.tsx` para apontar para `features/resume` quando aplicável.
 
-- [ ] 6. (Opcional) Criar `ResumeContainer.tsx` e tornar as sections apresentacionais
+- [x] 6.  (Opcional) Criar `ResumeContainer.tsx` e tornar as sections apresentacionais
 
-  - refatorar seções para receber props ao invés de chamar `useResume` diretamente.
+- refatorar seções para receber props ao invés de chamar `useResume` diretamente.
 
-- [ ] 7. Rodar build/checar aplicação
-  - executar `npm run build` e abrir a versão local para garantir que assets e favicon foram resolvidos corretamente.
+- [x] 7.  Rodar build/checar aplicação
+- executar `npm run build` e abrir a versão local para garantir que assets e favicon foram resolvidos corretamente.
 
 ## Riscos e assunções
 
