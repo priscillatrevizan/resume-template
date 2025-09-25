@@ -16,6 +16,16 @@
   transition: all 0.3s ease;
 }
 
+
+.content {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100svh;
+  width: auto;
+  overflow: auto;
+}
+
 .close {
   position: absolute;
   top: 1rem;
@@ -28,6 +38,11 @@
 
 .close:hover {
   opacity: 1;
+}
+
+/* Hide the close button when the sheet is used as the mobile sidebar */
+.content[data-sidebar="sidebar"] .close {
+  display: none;
 }
 
 .header {

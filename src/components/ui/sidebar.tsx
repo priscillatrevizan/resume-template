@@ -219,7 +219,9 @@ function Sidebar({
 }
 
 function SidebarTrigger({ className, onClick, ...props }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar, setOpenMobile, openMobile } = useSidebar();
+
+   const triggerClass = className ? className : styles.sidebarTrigger;
 
   return (
     <Button
@@ -227,10 +229,14 @@ function SidebarTrigger({ className, onClick, ...props }: React.ComponentProps<t
       data-slot="sidebar-trigger"
       variant="ghost"
       size="icon"
-      className={cn(styles.sidebarTrigger, className)}
+      className={cn(triggerClass)}
       onClick={event => {
         onClick?.(event);
-        toggleSidebar();
+        if (typeof window !== "undefined" && window.innerWidth < 768) {
+          setOpenMobile(!openMobile);
+        } else {
+          toggleSidebar();
+        }
       }}
       {...props}
     >
