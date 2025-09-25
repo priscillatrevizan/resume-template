@@ -1,0 +1,48 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.content {
+  background: hsl(var(--background));
+  position: fixed;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 1rem;
+}
+
+.dragHandle {
+  background: hsl(var(--muted));
+  height: 0.5rem;
+  width: 100px;
+  border-radius: 9999px;
+  margin: 0.5rem auto;
+  display: none;
+}
+
+.contentBottomHandleVisible {
+  display: block;
+}
+
+.title {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+}
+
+.description {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.875rem;
+}

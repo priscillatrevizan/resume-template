@@ -1,0 +1,35 @@
+.list {
+  color: hsl(var(--muted-foreground));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.link {
+  transition: color 150ms ease;
+}
+
+.page {
+  color: hsl(var(--foreground));
+  font-weight: 400;
+}
+
+.separator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

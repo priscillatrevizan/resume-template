@@ -1,0 +1,31 @@
+.tooltipContent {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  /* px-3 py-1.5 */
+  font-size: 0.75rem;
+  /* text-xs */
+  z-index: 50;
+  display: inline-block;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+  transform-origin: var(--radix-tooltip-content-transform-origin, center);
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.tooltipContent[data-state="open"] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.tooltipContent[data-state="closed"] {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.arrow {
+  fill: hsl(var(--primary));
+  z-index: 50;
+  width: 10px;
+  height: 10px;
+}

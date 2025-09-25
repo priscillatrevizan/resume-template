@@ -1,0 +1,9 @@
+.content {
+  background: var(--popover);
+  color: var(--popover-foreground);
+  width: 16rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  box-shadow: var(--shadow-md);
+}

@@ -1,0 +1,55 @@
+.container {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  caption-side: bottom;
+  font-size: 0.875rem;
+}
+
+.thead {}
+
+.tbody {}
+
+.tfoot {
+  background: rgba(0, 0, 0, 0.05);
+  border-top: 1px solid hsl(var(--border));
+  font-weight: 500;
+}
+
+.tr {
+  transition: background-color 150ms ease;
+}
+
+.trHover:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.trBorder {
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.th {
+  color: hsl(var(--foreground));
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.td {
+  padding: 0.5rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.caption {
+  color: hsl(var(--muted-foreground));
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}

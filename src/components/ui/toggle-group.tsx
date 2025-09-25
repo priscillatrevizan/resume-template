@@ -1,15 +1,19 @@
 "use client";
 
+import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 import * as React from "react";
-import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group@1.1.2";
-import { type VariantProps } from "class-variance-authority@0.7.1";
+import styles from "./toggle-group.module.css";
+import toggleStyles from "./toggle.module.css";
 
 import { cn } from "./utils";
-import { toggleVariants } from "./toggle";
 
-const ToggleGroupContext = React.createContext<
-  VariantProps<typeof toggleVariants>
->({
+type ToggleVariant = "default" | "outline";
+type ToggleSize = "default" | "sm" | "lg";
+
+const ToggleGroupContext = React.createContext<{
+  size?: ToggleSize;
+  variant?: ToggleVariant;
+}>({
   size: "default",
   variant: "default",
 });
@@ -20,22 +24,16 @@ function ToggleGroup({
   size,
   children,
   ...props
-}: React.ComponentProps<typeof ToggleGroupPrimitive.Root> &
-  VariantProps<typeof toggleVariants>) {
+}: React.ComponentProps<typeof ToggleGroupPrimitive.Root> & { variant?: ToggleVariant; size?: ToggleSize }) {
   return (
     <ToggleGroupPrimitive.Root
       data-slot="toggle-group"
       data-variant={variant}
       data-size={size}
-      className={cn(
-        "group/toggle-group flex w-fit items-center rounded-md data-[variant=outline]:shadow-xs",
-        className,
-      )}
+      className={cn(styles.root, className)}
       {...props}
     >
-      <ToggleGroupContext.Provider value={{ variant, size }}>
-        {children}
-      </ToggleGroupContext.Provider>
+      <ToggleGroupContext.Provider value={{ variant, size }}>{children}</ToggleGroupContext.Provider>
     </ToggleGroupPrimitive.Root>
   );
 }
@@ -46,22 +44,25 @@ function ToggleGroupItem({
   variant,
   size,
   ...props
-}: React.ComponentProps<typeof ToggleGroupPrimitive.Item> &
-  VariantProps<typeof toggleVariants>) {
+}: React.ComponentProps<typeof ToggleGroupPrimitive.Item> & { variant?: ToggleVariant; size?: ToggleSize }) {
   const context = React.useContext(ToggleGroupContext);
+
+  const appliedVariant = context.variant || variant || "default";
+  const appliedSize = context.size || size || "default";
+  const variantClass = `variant${appliedVariant.charAt(0).toUpperCase() + appliedVariant.slice(1)}`;
+  const sizeClass = `size${appliedSize.charAt(0).toUpperCase() + appliedSize.slice(1)}`;
 
   return (
     <ToggleGroupPrimitive.Item
       data-slot="toggle-group-item"
-      data-variant={context.variant || variant}
-      data-size={context.size || size}
+      data-variant={appliedVariant}
+      data-size={appliedSize}
       className={cn(
-        toggleVariants({
-          variant: context.variant || variant,
-          size: context.size || size,
-        }),
-        "min-w-0 flex-1 shrink-0 rounded-none shadow-none first:rounded-l-md last:rounded-r-md focus:z-10 focus-visible:z-10 data-[variant=outline]:border-l-0 data-[variant=outline]:first:border-l",
-        className,
+        toggleStyles.root,
+        (toggleStyles as any)[variantClass],
+        (toggleStyles as any)[sizeClass],
+        styles.itemExtra || undefined,
+        className
       )}
       {...props}
     >

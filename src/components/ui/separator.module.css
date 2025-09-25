@@ -1,0 +1,16 @@
+.root {
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.horizontal {
+  height: 1px;
+  width: 100%;
+}
+
+.vertical {
+  height: 100%;
+  width: 1px;
+}
+
+/* Usage note: the component will rely on data-orientation to style via attribute selectors if needed */

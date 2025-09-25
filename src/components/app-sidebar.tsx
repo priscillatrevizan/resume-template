@@ -75,7 +75,7 @@ export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
       <SidebarHeader>
         <div className={styles.sidebarHeader}>
           <SidebarTrigger className={styles.sidebarTrigger} />
-          <div className="group-data-[collapsible=icon]:hidden">
+          <div className={`${styles.groupCollapsedHidden} group-data-[collapsible=icon]:hidden`}>
             <ThemeToggle />
           </div>
         </div>
@@ -84,7 +84,7 @@ export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
             <AvatarImage src="/api/placeholder/100/100" alt="Seu Nome" />
             <AvatarFallback>SN</AvatarFallback>
           </Avatar>
-          <div className="group-data-[collapsible=icon]:hidden">
+          <div className={`${styles.groupCollapsedHidden} group-data-[collapsible=icon]:hidden`}>
             <h2 className={styles.profileName}>Seu Nome</h2>
             <p className={styles.profileTitle}>Desenvolvedor Full Stack</p>
           </div>
@@ -110,7 +110,7 @@ export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
           </SidebarMenu>
         </SidebarGroup>
 
-        <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+        <SidebarGroup className={`${styles.groupCollapsedHidden} group-data-[collapsible=icon]:hidden`}>
           <SidebarGroupLabel>Informações</SidebarGroupLabel>
           <div className={styles.infoSection}>
             <div className={styles.infoItem}>
