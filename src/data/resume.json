@@ -1,0 +1,109 @@
+{
+  "profile": {
+    "name": "Seu Nome",
+    "title": "Desenvolvedor Full Stack",
+    "location": "São Paulo, Brasil",
+    "experienceYears": "5+ anos de experiência",
+    "age": "28 anos",
+    "email": "seu.email@exemplo.com",
+    "phone": "+55 (11) 99999-9999",
+    "linkedin": "linkedin.com/in/seu-perfil",
+    "github": "github.com/seu-usuario",
+    "summary": "Desenvolvedor Full Stack apaixonado por tecnologia e inovação, com mais de 5 anos de experiência criando soluções web modernas e escaláveis. Especializado em React, Node.js e arquiteturas cloud, sempre busco entregar produtos de alta qualidade que geram valor real para usuários e negócios.",
+    "summary2": "Tenho experiência liderando equipes de desenvolvimento, implementando metodologias ágeis e promovendo boas práticas de código. Acredito na importância da colaboração, comunicação clara e aprendizado contínuo para o sucesso de qualquer projeto.",
+    "competencies": [
+      "Liderança Técnica",
+      "Arquitetura de Software",
+      "DevOps",
+      "Metodologias Ágeis",
+      "Mentoria",
+      "Code Review"
+    ]
+  },
+  "contact": {
+    "email": "seu.email@exemplo.com",
+    "phone": "+55 (11) 99999-9999",
+    "location": "São Paulo, Brasil",
+    "linkedin": "linkedin.com/in/seu-perfil",
+    "github": "github.com/seu-usuario"
+  },
+  "experiences": [
+    {
+      "company": "TechCorp Solutions",
+      "position": "Senior Full Stack Developer",
+      "period": "Jan 2022 - Presente",
+      "location": "São Paulo, SP",
+      "type": "Remoto",
+      "description": [
+        "Lidero equipe de 4 desenvolvedores na criação de plataforma SaaS com React, Node.js e AWS",
+        "Implementei arquitetura de microserviços que reduziu tempo de resposta em 40%",
+        "Estabeleci pipeline CI/CD com Docker e Kubernetes, aumentando frequência de deploys em 300%",
+        "Mentorei desenvolvedores júnior e conduzi code reviews mantendo alta qualidade de código"
+      ],
+      "technologies": [
+        { "name": "React", "variant": "pastel-blue" },
+        { "name": "TypeScript", "variant": "pastel-purple" },
+        { "name": "Node.js", "variant": "pastel-green" },
+        { "name": "PostgreSQL", "variant": "pastel-cyan" },
+        { "name": "AWS", "variant": "pastel-yellow" },
+        { "name": "Docker", "variant": "pastel-orange" },
+        { "name": "Kubernetes", "variant": "pastel-pink" }
+      ],
+      "highlights": ["Promoção para Senior", "Líder Técnico", "40% melhoria performance"]
+    },
+    {
+      "company": "StartupXYZ",
+      "position": "Full Stack Developer",
+      "period": "Mar 2020 - Dez 2021",
+      "location": "São Paulo, SP",
+      "type": "Híbrido",
+      "description": [
+        "Desenvolvi MVP de aplicação fintech do zero, desde prototipagem até produção",
+        "Criei API REST escalável com autenticação JWT e integração com gateways de pagamento",
+        "Implementei testes automatizados aumentando cobertura de código para 85%",
+        "Colaborei diretamente com product owners na definição de requisitos e prioridades"
+      ],
+      "technologies": [
+        { "name": "Vue.js", "variant": "pastel-green" },
+        { "name": "JavaScript", "variant": "pastel-yellow" },
+        { "name": "Express.js", "variant": "pastel-cyan" },
+        { "name": "MongoDB", "variant": "pastel-pink" },
+        { "name": "Stripe API", "variant": "pastel-orange" },
+        { "name": "Jest", "variant": "pastel-purple" }
+      ],
+      "highlights": ["MVP do zero", "85% cobertura testes", "Integração pagamentos"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "E-commerce Platform",
+      "description": "Plataforma completa de e-commerce com painel administrativo, sistema de pagamentos e gestão de estoque. Suporta múltiplos vendors e possui dashboard analítico avançado.",
+      "image": "/api/placeholder/400/200",
+      "technologies": [
+        { "name": "React", "variant": "pastel-blue" },
+        { "name": "Node.js", "variant": "pastel-green" },
+        { "name": "PostgreSQL", "variant": "pastel-purple" },
+        { "name": "Stripe", "variant": "pastel-orange" },
+        { "name": "AWS", "variant": "pastel-yellow" }
+      ],
+      "features": [
+        "Sistema de pagamentos integrado",
+        "Dashboard analítico em tempo real",
+        "Gestão multi-vendor",
+        "API REST escalável"
+      ],
+      "stats": { "stars": 156, "forks": 42 },
+      "links": {
+        "demo": "https://ecommerce-demo.exemplo.com",
+        "github": "https://github.com/seu-usuario/ecommerce-platform"
+      },
+      "status": "Em produção"
+    }
+  ],
+  "skills": [
+    { "name": "React", "level": "Avançado" },
+    { "name": "TypeScript", "level": "Avançado" },
+    { "name": "Node.js", "level": "Intermediário" },
+    { "name": "Docker", "level": "Intermediário" }
+  ]
+}
