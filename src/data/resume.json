@@ -1,109 +1,84 @@
 {
   "profile": {
-    "name": "Seu Nome",
-    "title": "Desenvolvedor Full Stack",
-    "location": "São Paulo, Brasil",
-    "experienceYears": "5+ anos de experiência",
-    "age": "28 anos",
-    "email": "seu.email@exemplo.com",
-    "phone": "+55 (11) 99999-9999",
-    "linkedin": "linkedin.com/in/seu-perfil",
-    "github": "github.com/seu-usuario",
-    "summary": "Desenvolvedor Full Stack apaixonado por tecnologia e inovação, com mais de 5 anos de experiência criando soluções web modernas e escaláveis. Especializado em React, Node.js e arquiteturas cloud, sempre busco entregar produtos de alta qualidade que geram valor real para usuários e negócios.",
-    "summary2": "Tenho experiência liderando equipes de desenvolvimento, implementando metodologias ágeis e promovendo boas práticas de código. Acredito na importância da colaboração, comunicação clara e aprendizado contínuo para o sucesso de qualquer projeto.",
-    "competencies": [
-      "Liderança Técnica",
-      "Arquitetura de Software",
-      "DevOps",
-      "Metodologias Ágeis",
-      "Mentoria",
-      "Code Review"
-    ]
+    "initials": "PT",
+    "name": "Priscilla Trevizan",
+    "title": "Desenvolvedora Web",
+    "location": "União da Vitória, PR, Brasil",
+    "experienceYears": "1+ ano de experiência",
+    "age": "33 anos",
+    "email": "priscillatomazi@gmail.com",
+    "phone": "+55 (42) 99999-9999",
+    "linkedin": "https://linkedin.com/in/priscillatomazi",
+    "github": "https://github.com/priscillatomazi",
+    "summary": "Desenvolvedora Front-end apaixonada por criar experiências digitais acessíveis, intuitivas e bem documentadas. Atuo com Vue.js em um projeto de e-commerce, construindo e mantendo interfaces, componentes reutilizáveis e fluxos com foco em usabilidade e padronização.",
+    "summary2": "Tenho facilidade em aprender e aplicar novas tecnologias, valorizo boas práticas de versionamento e comunicação clara com o time. Tenho também iniciativas próprias com projetos pessoais voltados à comunidade tech e sempre busco formas de contribuir com o coletivo.",
+    "competencies": ["Vue.js", "Pinia", "SCSS", "Documentação Técnica", "Versionamento Git", "Prototipação e Curadoria"]
   },
   "contact": {
-    "email": "seu.email@exemplo.com",
-    "phone": "+55 (11) 99999-9999",
-    "location": "São Paulo, Brasil",
-    "linkedin": "linkedin.com/in/seu-perfil",
-    "github": "github.com/seu-usuario"
+    "email": "priscillatomazi@gmail.com",
+    "phone": "+55 (42) 99999-9999",
+    "location": "União da Vitória, PR, Brasil",
+    "linkedin": "https://linkedin.com/in/priscillatomazi",
+    "github": "https://github.com/priscillatomazi"
   },
   "experiences": [
     {
-      "company": "TechCorp Solutions",
-      "position": "Senior Full Stack Developer",
-      "period": "Jan 2022 - Presente",
-      "location": "São Paulo, SP",
+      "company": "Onstoq (via Nimbup)",
+      "position": "Estagiária Front-end",
+      "period": "Jan 2024 - Atual",
+      "location": "Remoto",
       "type": "Remoto",
       "description": [
-        "Lidero equipe de 4 desenvolvedores na criação de plataforma SaaS com React, Node.js e AWS",
-        "Implementei arquitetura de microserviços que reduziu tempo de resposta em 40%",
-        "Estabeleci pipeline CI/CD com Docker e Kubernetes, aumentando frequência de deploys em 300%",
-        "Mentorei desenvolvedores júnior e conduzi code reviews mantendo alta qualidade de código"
-      ],
-      "technologies": [
-        { "name": "React", "variant": "pastel-blue" },
-        { "name": "TypeScript", "variant": "pastel-purple" },
-        { "name": "Node.js", "variant": "pastel-green" },
-        { "name": "PostgreSQL", "variant": "pastel-cyan" },
-        { "name": "AWS", "variant": "pastel-yellow" },
-        { "name": "Docker", "variant": "pastel-orange" },
-        { "name": "Kubernetes", "variant": "pastel-pink" }
-      ],
-      "highlights": ["Promoção para Senior", "Líder Técnico", "40% melhoria performance"]
-    },
-    {
-      "company": "StartupXYZ",
-      "position": "Full Stack Developer",
-      "period": "Mar 2020 - Dez 2021",
-      "location": "São Paulo, SP",
-      "type": "Híbrido",
-      "description": [
-        "Desenvolvi MVP de aplicação fintech do zero, desde prototipagem até produção",
-        "Criei API REST escalável com autenticação JWT e integração com gateways de pagamento",
-        "Implementei testes automatizados aumentando cobertura de código para 85%",
-        "Colaborei diretamente com product owners na definição de requisitos e prioridades"
+        "Desenvolvimento e manutenção de telas e componentes com Vue.js e Pinia em e-commerce",
+        "Atuação direta com backlog, documentação de tarefas e refinamento técnico",
+        "Sugestão de uso de Notion para controle inicial de mudanças e versionamento Git com branches e commits estruturados",
+        "Participação em decisões de estilo e arquitetura de componentes reutilizáveis"
       ],
       "technologies": [
         { "name": "Vue.js", "variant": "pastel-green" },
-        { "name": "JavaScript", "variant": "pastel-yellow" },
-        { "name": "Express.js", "variant": "pastel-cyan" },
-        { "name": "MongoDB", "variant": "pastel-pink" },
-        { "name": "Stripe API", "variant": "pastel-orange" },
-        { "name": "Jest", "variant": "pastel-purple" }
+        { "name": "Pinia", "variant": "pastel-blue" },
+        { "name": "SCSS", "variant": "pastel-purple" },
+        { "name": "Vite", "variant": "pastel-orange" },
+        { "name": "Git", "variant": "pastel-cyan" }
       ],
-      "highlights": ["MVP do zero", "85% cobertura testes", "Integração pagamentos"]
+      "highlights": [
+        "Melhoria no processo de versionamento",
+        "Componentização de layout",
+        "Participação ativa no ciclo ágil"
+      ]
     }
   ],
   "projects": [
     {
-      "title": "E-commerce Platform",
-      "description": "Plataforma completa de e-commerce com painel administrativo, sistema de pagamentos e gestão de estoque. Suporta múltiplos vendors e possui dashboard analítico avançado.",
+      "title": "Opa, Tem Vaga!",
+      "description": "Aplicativo web criado para divulgar oportunidades de trabalho para a comunidade tech. As vagas são curadas manualmente e publicadas semanalmente. O projeto surgiu da necessidade de centralizar as vagas que antes eram compartilhadas em grupos no Discord.",
       "image": "/api/placeholder/400/200",
       "technologies": [
-        { "name": "React", "variant": "pastel-blue" },
-        { "name": "Node.js", "variant": "pastel-green" },
-        { "name": "PostgreSQL", "variant": "pastel-purple" },
-        { "name": "Stripe", "variant": "pastel-orange" },
-        { "name": "AWS", "variant": "pastel-yellow" }
+        { "name": "Vue.js", "variant": "pastel-green" },
+        { "name": "Firebase", "variant": "pastel-orange" },
+        { "name": "Vercel", "variant": "pastel-blue" }
       ],
       "features": [
-        "Sistema de pagamentos integrado",
-        "Dashboard analítico em tempo real",
-        "Gestão multi-vendor",
-        "API REST escalável"
+        "Curadoria de vagas de tecnologia",
+        "Publicação semanal de vagas",
+        "Hospedagem gratuita e acessível"
       ],
-      "stats": { "stars": 156, "forks": 42 },
+      "stats": { "stars": 0, "forks": 0 },
       "links": {
-        "demo": "https://ecommerce-demo.exemplo.com",
-        "github": "https://github.com/seu-usuario/ecommerce-platform"
+        "demo": "https://opa-tem-vaga.vercel.app",
+        "github": "https://github.com/priscillatomazi/opa-tem-vaga"
       },
       "status": "Em produção"
     }
   ],
   "skills": [
-    { "name": "React", "level": "Avançado" },
-    { "name": "TypeScript", "level": "Avançado" },
-    { "name": "Node.js", "level": "Intermediário" },
-    { "name": "Docker", "level": "Intermediário" }
+    { "name": "Vue.js", "level": "Intermediário" },
+    { "name": "Pinia", "level": "Intermediário" },
+    { "name": "SCSS", "level": "Intermediário" },
+    { "name": "Git", "level": "Intermediário" },
+    { "name": "HTML", "level": "Avançado" },
+    { "name": "CSS", "level": "Avançado" },
+    { "name": "JavaScript", "level": "Intermediário" },
+    { "name": "Firebase", "level": "Básico" }
   ]
 }
