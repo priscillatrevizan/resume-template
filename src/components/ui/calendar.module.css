@@ -1,0 +1,133 @@
+.root {
+  padding: 0.75rem;
+}
+
+.nav {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.months {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.month {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.caption {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.25rem;
+  position: relative;
+  align-items: center;
+  width: 100%;
+}
+
+.captionLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.navButton {
+  padding: 0;
+  opacity: 0.5;
+}
+
+.navButtonPrevious {
+  position: absolute;
+  left: 0.25rem;
+}
+
+.navButtonNext {
+  position: absolute;
+  right: 0.25rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.headRow {
+  display: flex;
+}
+
+.headCell {
+  color: hsl(var(--muted-foreground));
+  border-radius: 0.25rem;
+  width: 2rem;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.cell {
+  position: relative;
+  padding: 0;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.cellRange {
+  /* styles to support range rounded edges */
+  border-radius: 0.25rem;
+}
+
+.cellSingle {
+  /* single selection cell */
+  border-radius: 0.25rem;
+}
+
+.dayRangeStart {
+  /* placeholder for start range */
+  outline: none;
+}
+
+.dayRangeEnd {
+  /* placeholder for end range */
+  outline: none;
+}
+
+.daySelected {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.dayToday {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.dayOutside {
+  color: hsl(var(--muted-foreground));
+}
+
+.dayDisabled {
+  color: hsl(var(--muted-foreground));
+  opacity: 0.5;
+}
+
+.dayRangeMiddle {
+  background: hsl(var(--accent));
+}
+
+.dayHidden {
+  visibility: hidden;
+}

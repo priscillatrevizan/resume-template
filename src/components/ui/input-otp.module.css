@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input {
+  cursor: auto;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.slot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-top: 0;
+  border-bottom: 0;
+  background: var(--input-background);
+  font-size: 0.875rem;
+  transition: all .12s ease;
+}
+
+.slot[data-active="true"] {
+  box-shadow: 0 0 0 3px var(--ring);
+  z-index: 10;
+}
+
+.caretWrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caret {
+  background: var(--foreground);
+  height: 16px;
+  width: 1px;
+  animation: blink 1s steps(2, start) infinite;
+}

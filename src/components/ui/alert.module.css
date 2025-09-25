@@ -1,0 +1,39 @@
+.title {
+  grid-column-start: 2;
+  min-height: 1rem;
+  /* min-h-4 */
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  /* tracking-tight */
+}
+
+.description {
+  color: var(--muted-foreground);
+  grid-column-start: 2;
+  display: grid;
+  justify-items: start;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.root {
+  position: relative;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 0 1fr;
+  gap: 0.25rem;
+  align-items: start;
+}
+
+.variantDefault {
+  background: var(--card);
+  color: var(--card-foreground);
+}
+
+.variantDestructive {
+  background: var(--card);
+  color: var(--destructive);
+}

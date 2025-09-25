@@ -93,3 +93,11 @@
     display: none !important;
   }
 }
+
+.groupCollapsedHidden {
+  /* This class used to mirror Tailwind's group-data-[collapsible=icon]:hidden token.
+     Elements with this class should be visible by default; when the sidebar is
+     collapsed to icon mode a global selector (matching the literal token) will
+     hide them. */
+  display: block;
+}

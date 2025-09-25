@@ -1,0 +1,89 @@
+.subTrigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.mlAuto {
+  margin-left: auto;
+}
+
+.subContent {
+  background: var(--popover);
+  color: var(--popover-foreground);
+  min-width: 8rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  padding: 4px;
+  box-shadow: var(--shadow-lg);
+}
+
+.content {
+  background: var(--popover);
+  color: var(--popover-foreground);
+  max-height: var(--radix-context-menu-content-available-height);
+  min-width: 8rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  padding: 4px;
+  box-shadow: var(--shadow-md);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.checkboxItem,
+.radioItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  position: relative;
+}
+
+.indicatorSpan {
+  position: absolute;
+  left: 8px;
+  display: flex;
+  width: 14px;
+  height: 14px;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkIcon {
+  width: 16px;
+  height: 16px
+}
+
+.radioCircle {
+  width: 8px;
+  height: 8px
+}
+
+.label {
+  padding: 6px 8px;
+  font-weight: 500;
+}
+
+.separator {
+  height: 1px;
+  margin: 6px -4px;
+  background: var(--border);
+}
+
+.shortcut {
+  margin-left: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--muted-foreground);
+}

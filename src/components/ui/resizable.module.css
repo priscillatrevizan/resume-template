@@ -1,0 +1,40 @@
+.group {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.groupVertical {
+  flex-direction: column;
+}
+
+.handle {
+  background: hsl(var(--border));
+  position: relative;
+  display: flex;
+  width: 1px;
+  align-items: center;
+  justify-content: center;
+}
+
+.handleVertical {
+  height: 1px;
+  width: 100%;
+}
+
+.handleInner {
+  background: hsl(var(--border));
+  z-index: 10;
+  display: flex;
+  height: 1rem;
+  width: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.125rem;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.iconSize {
+  width: 1rem;
+  height: 1rem;
+}

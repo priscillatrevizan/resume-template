@@ -1,0 +1,107 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16/9;
+  font-size: 0.75rem;
+}
+
+.payloadRow {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.itemsCenter {
+  align-items: center;
+}
+
+.indicator {
+  border-radius: 2px;
+}
+
+.indicatorDot {
+  height: 10px;
+  width: 10px;
+}
+
+.indicatorLine {
+  width: 4px;
+}
+
+.indicatorDashed {
+  border-style: dashed;
+}
+
+.indicatorDashedMargin {
+  margin-top: 2px;
+}
+
+.tooltip {
+  background: var(--background);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.label {
+  font-weight: 500;
+}
+
+.gridGap {
+  display: grid;
+  gap: 0.375rem;
+}
+
+.flexBetween {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-between;
+  line-height: 1;
+}
+
+.itemsEnd {
+  align-items: end;
+}
+
+.muted {
+  color: hsl(var(--muted-foreground));
+}
+
+.numeric {
+  color: var(--foreground);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", "Helvetica Neue", monospace;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.legendTop {
+  padding-bottom: 0.75rem;
+}
+
+.legendBottom {
+  padding-top: 0.75rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+
+}
+
+.legendColorBox {
+  height: 0.5rem;
+  width: 0.5rem;
+  flex-shrink: 0;
+  border-radius: 2px;
+}

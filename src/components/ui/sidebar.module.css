@@ -175,6 +175,11 @@
   overflow: auto;
 }
 
+.mobileSidebar {
+  width: 18rem;
+  padding: 0;
+}
+
 /* Sidebar Content icon mode */
 .sidebarContentIcon {
   overflow: hidden;
@@ -216,6 +221,34 @@
   min-width: 0;
   flex-direction: column;
   padding: 0.5rem;
+}
+
+.groupContent {
+  width: 100%;
+  font-size: 0.875rem;
+}
+
+.groupPeerHidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .groupPeerHidden {
+    display: block;
+  }
+}
+
+.fullFlexCol {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.inputSmall {
+  height: 2rem;
+  width: 100%;
+  box-shadow: none;
 }
 
 /* Sidebar Group Label */

@@ -1,0 +1,16 @@
+.root {
+  background: hsla(var(--primary) / 0.2);
+  position: relative;
+  height: 0.5rem;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+.indicator {
+  background: hsl(var(--primary));
+  height: 100%;
+  width: 100%;
+  transition: transform 300ms ease;
+  display: flex;
+}

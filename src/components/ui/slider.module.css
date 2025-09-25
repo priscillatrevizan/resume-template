@@ -1,0 +1,46 @@
+.root {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.track {
+  background: hsl(var(--muted));
+  position: relative;
+  flex-grow: 1;
+  overflow: hidden;
+  border-radius: 9999px;
+  height: 1rem;
+}
+
+.range {
+  background: hsl(var(--primary));
+  position: absolute;
+  height: 100%;
+}
+
+.thumb {
+  border: 1px solid hsl(var(--primary));
+  background: hsl(var(--background));
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 150ms ease;
+}
+
+.thumb:hover {
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
+}
+
+.vertical {
+  flex-direction: column;
+  height: 100%;
+  min-height: 11rem;
+  width: auto;
+}
+
+.disabled {
+  opacity: 0.5;
+}

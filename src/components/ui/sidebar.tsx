@@ -160,7 +160,7 @@ function Sidebar({
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
-          className={cn(styles.sidebar, "w-72 p-0")}
+          className={cn(styles.sidebar, styles.mobileSidebar)}
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
@@ -172,7 +172,7 @@ function Sidebar({
             <SheetTitle>Sidebar</SheetTitle>
             <SheetDescription>Displays the mobile sidebar.</SheetDescription>
           </SheetHeader>
-          <div className="flex h-full w-full flex-col">{children}</div>
+          <div className={styles.fullFlexCol}>{children}</div>
         </SheetContent>
       </Sheet>
     );
@@ -189,10 +189,7 @@ function Sidebar({
 
   return (
     <div
-      className={cn(
-        "group peer hidden md:block",
-        state === "collapsed" && collapsible === "icon" && styles.sidebarIcon
-      )}
+      className={cn(styles.groupPeerHidden, state === "collapsed" && collapsible === "icon" && styles.sidebarIcon)}
       data-state={state}
       data-collapsible={state === "collapsed" ? collapsible : ""}
       data-variant={variant}
@@ -249,12 +246,7 @@ function SidebarInset({ className, ...props }: React.ComponentProps<"main">) {
 
 function SidebarInput({ className, ...props }: React.ComponentProps<typeof Input>) {
   return (
-    <Input
-      data-slot="sidebar-input"
-      data-sidebar="input"
-      className={cn("h-8 w-full shadow-none", className)}
-      {...props}
-    />
+    <Input data-slot="sidebar-input" data-sidebar="input" className={cn(styles.inputSmall, className)} {...props} />
   );
 }
 
@@ -320,7 +312,7 @@ function SidebarGroupContent({ className, ...props }: React.ComponentProps<"div"
     <div
       data-slot="sidebar-group-content"
       data-sidebar="group-content"
-      className={cn("w-full text-sm", className)}
+      className={cn(styles.groupContent, className)}
       {...props}
     />
   );

@@ -248,3 +248,17 @@ a:hover {
 .sidebarIcon [class*="group-data-[collapsible=icon]:hidden"] {
   display: none !important;
 }
+
+/* Accordion interactions: rotate chevron when trigger is open, animate content on open/close */
+[data-slot="accordion-trigger"][data-state="open"] svg,
+[data-slot="accordion-trigger"] [data-state="open"] svg {
+  transform: rotate(180deg);
+}
+
+[data-slot="accordion-content"][data-state="open"] {
+  animation: accordion-down 0.2s ease forwards;
+}
+
+[data-slot="accordion-content"][data-state="closed"] {
+  animation: accordion-up 0.2s ease forwards;
+}

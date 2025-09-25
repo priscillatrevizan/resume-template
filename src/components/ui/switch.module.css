@@ -1,0 +1,23 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  width: 2rem;
+  /* approx w-8 */
+  height: 1.15rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.thumb {
+  display: block;
+  border-radius: 9999px;
+  width: 1rem;
+  /* size-4 */
+  height: 1rem;
+  background: var(--card);
+  transition: transform 0.15s ease;
+}
+
+/* state-based visuals rely on data-state attribute selectors in global styles or ingredient CSS variables */

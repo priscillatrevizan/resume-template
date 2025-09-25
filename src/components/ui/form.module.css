@@ -1,0 +1,18 @@
+.item {
+  display: grid;
+  gap: 8px;
+}
+
+.label {
+  color: var(--foreground);
+}
+
+.description {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.message {
+  color: var(--destructive);
+  font-size: 0.875rem;
+}
