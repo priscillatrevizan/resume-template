@@ -28,7 +28,7 @@ export function AboutSection() {
 
       {/* Header for Screen Only */}
       <div className={styles.screenHeader}>
-        <h1 className={styles.mainTitle}>{profile.name}</h1>
+        {/* <h1 className={styles.mainTitle}>{profile.name}</h1> */}
         <h2 className={styles.subtitle}>{profile.title}</h2>
         <div className={styles.infoContainer}>
           <div className={styles.infoItem}>

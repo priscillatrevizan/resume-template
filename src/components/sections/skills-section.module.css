@@ -42,6 +42,11 @@
 }
 
 .skillCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  overflow: hidden;
   background-color: hsl(var(--card));
   border: 1px solid hsl(var(--border));
   border-radius: 0.5rem;
@@ -92,6 +97,13 @@
 .skillName {
   font-weight: 500;
 }
+
+.skillLevel {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: hsl(var(--muted-foreground));
+}
+
 
 .skillPercentage {
   font-size: 0.875rem;
