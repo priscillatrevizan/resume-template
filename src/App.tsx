@@ -17,6 +17,12 @@ export default function App() {
   const profile = data.profile;
 
   useEffect(() => {
+    if (profile?.name && typeof document !== "undefined") {
+      document.title = profile.name;
+    }
+  }, [profile?.name]);
+
+  useEffect(() => {
     const handleScroll = () => {
       const sections = ["about", "experience", "skills", "projects", "contact"];
       const scrollPosition = window.scrollY + 100;
