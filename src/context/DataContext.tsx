@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useMemo } from "react";
 import resumeData from "../data/resume.json";
-import { getImageMap, resolveAsset } from "../features/resume/services/assetResolver";
+import { resolveAsset, getImageMap } from "../features/resume/services/assetResolver";
+import { transformResume } from "../features/resume/services/transformResume";
 
 export type Resume = typeof resumeData;
 
@@ -10,39 +11,7 @@ const images = getImageMap();
 
 export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const value = useMemo(() => {
-    const cloned: any = JSON.parse(JSON.stringify(resumeData));
-
-    const isImageReference = (s: string) => {
-      if (!s) return false;
-      if (s.startsWith("#file:")) return true;
-      return /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/i.test(s) || /^\.\//.test(s);
-    };
-
-    function traverseAndResolve(node: any) {
-      if (Array.isArray(node)) {
-        for (let i = 0; i < node.length; i++) {
-          if (typeof node[i] === "string") {
-            const val = node[i] as string;
-            if (isImageReference(val)) node[i] = resolveAsset(val);
-          } else if (typeof node[i] === "object" && node[i] !== null) {
-            traverseAndResolve(node[i]);
-          }
-        }
-      } else if (typeof node === "object" && node !== null) {
-        for (const key of Object.keys(node)) {
-          const val = node[key];
-          if (typeof val === "string") {
-            if (isImageReference(val)) {
-              node[key] = resolveAsset(val);
-            }
-          } else if (typeof val === "object" && val !== null) {
-            traverseAndResolve(val);
-          }
-        }
-      }
-    }
-
-    traverseAndResolve(cloned);
+    const cloned: any = transformResume(resumeData, resolveAsset);
 
     // Set favicon in the document head if we can find one.
     // Priority: cloned.profile.favicon -> cloned.favicon -> search assets for favicon-32x32.png

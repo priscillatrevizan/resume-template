@@ -56,11 +56,11 @@ src/
 
 ## Passo a passo resumido
 
-- [ ] 1. Criar `src/features/resume/services/assetResolver.ts`
+- [x] 1. Criar `src/features/resume/services/assetResolver.ts`
 
   - mover a lógica de `import.meta.glob` e exportar `resolveAsset`.
 
-- [ ] 2. Criar `src/features/resume/services/transformResume.ts`
+- [x] 2. Criar `src/features/resume/services/transformResume.ts`
 
   - implementar a função que clona `resume.json` e substitui referências de imagem por URLs usando `resolveAsset`.
 
