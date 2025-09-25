@@ -161,7 +161,7 @@
 .sidebarHeader {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 2rem;
   padding: 0.5rem;
 }
 
@@ -221,6 +221,11 @@
   min-width: 0;
   flex-direction: column;
   padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+.sidebarFooter .sidebarGroup {
+  padding: 0;
 }
 
 .groupContent {

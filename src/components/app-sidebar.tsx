@@ -2,6 +2,9 @@ import { Briefcase, Code, FolderOpen, Github, Linkedin, Mail, MapPin, Phone, Use
 import styles from "./app-sidebar.module.css";
 import { ThemeToggle } from "./theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+
+import { useResume } from "../context/DataContext";
+
 import {
   Sidebar,
   SidebarContent,
@@ -43,25 +46,22 @@ const menuItems = [
   },
 ];
 
-const socialLinks = [
-  {
-    title: "GitHub",
-    icon: Github,
-    url: "https://github.com/seu-usuario",
-  },
-  {
-    title: "LinkedIn",
-    icon: Linkedin,
-    url: "https://linkedin.com/in/seu-perfil",
-  },
-];
-
 interface AppSidebarProps {
   onNavigate: (section: string) => void;
   activeSection: string;
 }
 
 export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
+  const data = useResume();
+  const profile = data.profile || {};
+  const initials = profile.name
+    ? profile.name
+        .split(" ")
+        .map((n: string) => n[0])
+        .join("")
+        .slice(0, 2)
+    : "JS";
+
   const handleNavigation = (sectionId: string) => {
     onNavigate(sectionId);
     const element = document.getElementById(sectionId);
@@ -69,6 +69,20 @@ export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const socialLinks = [
+    {
+      title: "GitHub",
+      icon: Github,
+      url: (profile as any)?.github || (data.contact && data.contact.github) || "https://github.com/seu-usuario",
+    },
+    {
+      title: "LinkedIn",
+      icon: Linkedin,
+      url:
+        (profile as any)?.linkedin || (data.contact && data.contact.linkedin) || "https://linkedin.com/in/seu-perfil",
+    },
+  ];
 
   return (
     <Sidebar variant="sidebar" collapsible="icon">
@@ -81,12 +95,12 @@ export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
         </div>
         <div className={styles.profileSection}>
           <Avatar className={styles.avatar}>
-            <AvatarImage src="/api/placeholder/100/100" alt="Seu Nome" />
-            <AvatarFallback>SN</AvatarFallback>
+            <AvatarImage src={(profile as any)?.avatar} alt={profile?.name || "Seu Nome"} />
+            <AvatarFallback>{initials}</AvatarFallback>
           </Avatar>
           <div className={`${styles.groupCollapsedHidden} group-data-[collapsible=icon]:hidden`}>
-            <h2 className={styles.profileName}>Seu Nome</h2>
-            <p className={styles.profileTitle}>Desenvolvedor Full Stack</p>
+            <h2 className={styles.profileName}>{profile.name}</h2>
+            <p className={styles.profileTitle}>{profile.title}</p>
           </div>
         </div>
       </SidebarHeader>
@@ -115,15 +129,15 @@ export function AppSidebar({ onNavigate, activeSection }: AppSidebarProps) {
           <div className={styles.infoSection}>
             <div className={styles.infoItem}>
               <MapPin className={styles.infoIcon} />
-              <span>São Paulo, Brasil</span>
+              <span>{profile.location || "São Paulo, Brasil"}</span>
             </div>
             <div className={styles.infoItem}>
               <Phone className={styles.infoIcon} />
-              <span>+55 (11) 99999-9999</span>
+              <span>{profile.phone || "+55 (11) 99999-9999"}</span>
             </div>
             <div className={styles.infoItem}>
               <Mail className={styles.infoIcon} />
-              <span>seu.email@exemplo.com</span>
+              <span>{profile.email || "seu.email@exemplo.com"}</span>
             </div>
           </div>
         </SidebarGroup>

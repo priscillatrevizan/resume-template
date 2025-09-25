@@ -9,9 +9,18 @@ import { ProjectsSection } from "./components/sections/projects-section";
 import { SkillsSection } from "./components/sections/skills-section";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
 import { Toaster } from "./components/ui/sonner";
+import { useResume } from "./context/DataContext";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("about");
+  const data = useResume();
+  const profile = data.profile;
+
+  useEffect(() => {
+    if (profile?.name && typeof document !== "undefined") {
+      document.title = profile.name;
+    }
+  }, [profile?.name]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +55,10 @@ export default function App() {
                 <SidebarTrigger className={styles.sidebarTrigger} />
                 <div className={styles.separator} />
               </div>
+
               <div className={styles.headerRight}>
+                <h1 className={styles.mainTitle}>{profile?.name}</h1>
+
                 <ExportPdfButton />
               </div>
             </div>
@@ -69,7 +81,7 @@ export default function App() {
           <footer className={styles.footer}>
             <div className={styles.footerContainer}>
               <div className={styles.footerContent}>
-                <p className={styles.footerText}>© 2024 João Silva. Todos os direitos reservados.</p>
+                <p className={styles.footerText}>© 2024 {profile?.name}. Todos os direitos reservados.</p>
                 <p className={styles.footerText}>Desenvolvido com React, TypeScript e CSS Modules</p>
               </div>
             </div>

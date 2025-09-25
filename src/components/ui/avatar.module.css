@@ -10,9 +10,14 @@
 .image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+  object-fit: contain;
+  /* keep full image visible inside the circle */
+  object-position: center;
+  padding: 6px;
+
 }
+
+
 
 .fallback {
   background: hsl(var(--muted));
