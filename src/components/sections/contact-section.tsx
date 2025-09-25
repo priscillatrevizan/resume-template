@@ -8,40 +8,14 @@ import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 import styles from "./contact-section.module.css";
 
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "seu.email@exemplo.com",
-    href: "mailto:seu.email@exemplo.com",
-  },
-  {
-    icon: Phone,
-    label: "Telefone",
-    value: "+55 (11) 99999-9999",
-    href: "tel:+5511999999999",
-  },
-  {
-    icon: MapPin,
-    label: "Localização",
-    value: "São Paulo, Brasil",
-    href: "https://maps.google.com/?q=São+Paulo,+Brasil",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    value: "linkedin.com/in/seu-perfil",
-    href: "https://linkedin.com/in/seu-perfil",
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    value: "github.com/seu-usuario",
-    href: "https://github.com/seu-usuario",
-  },
-];
+import { useResume } from "../../context/DataContext";
+
+// ...existing code...
 
 export function ContactSection() {
+  const data = useResume();
+  const contact = data.contact;
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -81,24 +55,80 @@ export function ContactSection() {
           </CardHeader>
           <CardContent className={styles.cardContent}>
             <div className={styles.contactInfoList}>
-              {contactInfo.map(item => (
-                <div key={item.label} className={styles.contactInfoItem}>
-                  <div className={styles.iconContainer}>
-                    <item.icon className={styles.icon} />
-                  </div>
-                  <div className={styles.contactDetails}>
-                    <p className={styles.contactLabel}>{item.label}</p>
-                    <a
-                      href={item.href}
-                      target={item.href.startsWith("http") ? "_blank" : undefined}
-                      rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className={styles.contactLink}
-                    >
-                      {item.value}
-                    </a>
-                  </div>
+              <div className={styles.contactInfoItem}>
+                <div className={styles.iconContainer}>
+                  <Mail className={styles.icon} />
                 </div>
-              ))}
+                <div className={styles.contactDetails}>
+                  <p className={styles.contactLabel}>Email</p>
+                  <a href={`mailto:${contact.email}`} className={styles.contactLink}>
+                    {contact.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className={styles.contactInfoItem}>
+                <div className={styles.iconContainer}>
+                  <Phone className={styles.icon} />
+                </div>
+                <div className={styles.contactDetails}>
+                  <p className={styles.contactLabel}>Telefone</p>
+                  <a href={`tel:${contact.phone.replace(/[^+0-9]/g, "")}`} className={styles.contactLink}>
+                    {contact.phone}
+                  </a>
+                </div>
+              </div>
+
+              <div className={styles.contactInfoItem}>
+                <div className={styles.iconContainer}>
+                  <MapPin className={styles.icon} />
+                </div>
+                <div className={styles.contactDetails}>
+                  <p className={styles.contactLabel}>Localização</p>
+                  <a
+                    href={`https://maps.google.com/?q=${encodeURIComponent(contact.location)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.contactLink}
+                  >
+                    {contact.location}
+                  </a>
+                </div>
+              </div>
+
+              <div className={styles.contactInfoItem}>
+                <div className={styles.iconContainer}>
+                  <Linkedin className={styles.icon} />
+                </div>
+                <div className={styles.contactDetails}>
+                  <p className={styles.contactLabel}>LinkedIn</p>
+                  <a
+                    href={`https://${contact.linkedin.replace(/^https?:\/\//, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.contactLink}
+                  >
+                    {contact.linkedin}
+                  </a>
+                </div>
+              </div>
+
+              <div className={styles.contactInfoItem}>
+                <div className={styles.iconContainer}>
+                  <Github className={styles.icon} />
+                </div>
+                <div className={styles.contactDetails}>
+                  <p className={styles.contactLabel}>GitHub</p>
+                  <a
+                    href={`https://${contact.github.replace(/^https?:\/\//, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.contactLink}
+                  >
+                    {contact.github}
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* PDF-only clean contact list */}

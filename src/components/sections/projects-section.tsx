@@ -1,75 +1,11 @@
 import { ExternalLink, GitFork, Github, Star } from "lucide-react";
+import { useResume } from "../../context/DataContext";
 import styles from "./projects-section.module.css";
 
-const projects = [
-  {
-    title: "E-commerce Platform",
-    description:
-      "Plataforma completa de e-commerce com painel administrativo, sistema de pagamentos e gestão de estoque. Suporta múltiplos vendors e possui dashboard analítico avançado.",
-    image: "/api/placeholder/400/200",
-    technologies: [
-      { name: "React", variant: "pastel-blue" },
-      { name: "Node.js", variant: "pastel-green" },
-      { name: "PostgreSQL", variant: "pastel-purple" },
-      { name: "Stripe", variant: "pastel-orange" },
-      { name: "AWS", variant: "pastel-yellow" },
-    ],
-    features: [
-      "Sistema de pagamentos integrado",
-      "Dashboard analítico em tempo real",
-      "Gestão multi-vendor",
-      "API REST escalável",
-    ],
-    stats: { stars: 156, forks: 42 },
-    links: {
-      demo: "https://ecommerce-demo.exemplo.com",
-      github: "https://github.com/seu-usuario/ecommerce-platform",
-    },
-    status: "Em produção",
-  },
-  {
-    title: "Task Management App",
-    description:
-      "Aplicação de gerenciamento de tarefas em tempo real com colaboração em equipe, notificações push e sincronização offline-first.",
-    image: "/api/placeholder/400/200",
-    technologies: [
-      { name: "Vue.js", variant: "pastel-green" },
-      { name: "Express.js", variant: "pastel-cyan" },
-      { name: "MongoDB", variant: "pastel-pink" },
-      { name: "Socket.io", variant: "pastel-indigo" },
-      { name: "PWA", variant: "pastel-orange" },
-    ],
-    features: ["Colaboração em tempo real", "Sincronização offline", "Notificações push", "Drag & drop interface"],
-    stats: { stars: 89, forks: 23 },
-    links: {
-      demo: "https://taskapp-demo.exemplo.com",
-      github: "https://github.com/seu-usuario/task-management",
-    },
-    status: "Finalizado",
-  },
-  {
-    title: "DevOps Dashboard",
-    description:
-      "Dashboard para monitoramento de infraestrutura cloud com métricas em tempo real, alertas automáticos e integração com múltiplos provedores.",
-    image: "/api/placeholder/400/200",
-    technologies: [
-      { name: "React", variant: "pastel-blue" },
-      { name: "TypeScript", variant: "pastel-purple" },
-      { name: "Grafana", variant: "pastel-orange" },
-      { name: "Prometheus", variant: "pastel-cyan" },
-      { name: "Docker", variant: "pastel-yellow" },
-    ],
-    features: ["Monitoramento multi-cloud", "Alertas personalizáveis", "Métricas em tempo real", "Integração CI/CD"],
-    stats: { stars: 234, forks: 67 },
-    links: {
-      demo: "https://devops-dashboard.exemplo.com",
-      github: "https://github.com/seu-usuario/devops-dashboard",
-    },
-    status: "Em desenvolvimento",
-  },
-];
-
 export function ProjectsSection() {
+  const data = useResume();
+  const projects = data.projects || [];
+
   return (
     <section id="projects" className={styles.projectsSection}>
       <div className={styles.headerSection}>
@@ -80,7 +16,7 @@ export function ProjectsSection() {
       </div>
 
       <div className={styles.projectsList}>
-        {projects.map((project, index) => (
+        {projects.map((project: any, index: number) => (
           <div key={index} className={styles.projectCard}>
             <div className={styles.projectGrid}>
               <div className={styles.imageContainer}>
@@ -113,7 +49,7 @@ export function ProjectsSection() {
                   <div className={styles.featureSection}>
                     <h4 className={styles.sectionTitle}>Principais funcionalidades:</h4>
                     <ul className={styles.featureList}>
-                      {project.features.map((feature, i) => (
+                      {project.features.map((feature: string, i: number) => (
                         <li key={i} className={styles.featureItem}>
                           <span className={styles.bullet}>●</span>
                           {feature}
@@ -125,13 +61,14 @@ export function ProjectsSection() {
                   <div className={styles.techSection}>
                     <h4 className={styles.sectionTitle}>Tecnologias:</h4>
                     <div className={`${styles.badgeContainer} ${styles.noPrint}`}>
-                      {project.technologies.map(tech => (
+                      {project.technologies.map((tech: any) => (
                         <span
                           key={tech.name}
                           className={`${styles.badge} ${
                             styles[
                               `badge${
-                                tech.variant.split("-")[1].charAt(0).toUpperCase() + tech.variant.split("-")[1].slice(1)
+                                (tech.variant.split("-")[1] || "").charAt(0).toUpperCase() +
+                                (tech.variant.split("-")[1] || "").slice(1)
                               }`
                             ]
                           }`}
@@ -142,7 +79,9 @@ export function ProjectsSection() {
                     </div>
                     {/* PDF-only plain text version with dashes */}
                     <div className={styles.printOnly}>
-                      <p className={styles.printTechList}>{project.technologies.map(tech => tech.name).join(" - ")}</p>
+                      <p className={styles.printTechList}>
+                        {project.technologies.map((tech: any) => tech.name).join(" - ")}
+                      </p>
                     </div>
                   </div>
 
@@ -150,17 +89,17 @@ export function ProjectsSection() {
                   <div className={`${styles.statsContainer} ${styles.noPrint}`}>
                     <div className={styles.statItem}>
                       <Star className={styles.statIcon} />
-                      {project.stats.stars}
+                      {project.stats?.stars}
                     </div>
                     <div className={styles.statItem}>
                       <GitFork className={styles.statIcon} />
-                      {project.stats.forks}
+                      {project.stats?.forks}
                     </div>
                   </div>
 
                   <div className={`${styles.buttonsContainer} ${styles.noPrint}`}>
                     <a
-                      href={project.links.demo}
+                      href={project.links?.demo}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`${styles.button} ${styles.buttonPrimary}`}
@@ -169,7 +108,7 @@ export function ProjectsSection() {
                       Demo
                     </a>
                     <a
-                      href={project.links.github}
+                      href={project.links?.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`${styles.button} ${styles.buttonOutline}`}
@@ -184,8 +123,8 @@ export function ProjectsSection() {
                     <p>
                       <strong>Links do projeto:</strong>
                     </p>
-                    <p>• Demonstração: {project.links.demo}</p>
-                    <p>• Código fonte: {project.links.github}</p>
+                    <p>• Demonstração: {project.links?.demo}</p>
+                    <p>• Código fonte: {project.links?.github}</p>
                   </div>
                 </div>
               </div>

@@ -36,18 +36,24 @@ const SheetContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content> & {
     side?: "top" | "right" | "bottom" | "left";
   }
->(({ side = "right", className, children, ...props }, ref) => (
-  <SheetPortal>
-    <SheetOverlay />
-    <SheetPrimitive.Content ref={ref} data-slot="sheet-content" className={cn(styles.content, className)} {...props}>
-      {children}
-      <SheetPrimitive.Close className={styles.close}>
-        <XIcon className={styles.size4} />
-        <span className="sr-only">Close</span>
-      </SheetPrimitive.Close>
-    </SheetPrimitive.Content>
-  </SheetPortal>
-));
+>(({ side = "right", className, children, ...props }, ref) => {
+  const isSidebar = (props as any)["data-sidebar"] === "sidebar";
+
+  return (
+    <SheetPortal>
+      <SheetOverlay />
+      <SheetPrimitive.Content ref={ref} data-slot="sheet-content" className={cn(styles.content, className)} {...props}>
+        {children}
+        {!isSidebar && (
+          <SheetPrimitive.Close className={styles.close}>
+            <XIcon className={styles.size4} />
+            <span className="sr-only">Close</span>
+          </SheetPrimitive.Close>
+        )}
+      </SheetPrimitive.Content>
+    </SheetPortal>
+  );
+});
 SheetContent.displayName = SheetPrimitive.Content.displayName;
 
 const SheetHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(

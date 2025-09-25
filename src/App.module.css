@@ -1,3 +1,15 @@
+@media (min-width: 768px) {
+  .headerContent {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .headerContent .sidebarTrigger {
+    display: none;
+  }
+}
+
 /* App Main Styles */
 .app {
   display: flex;
