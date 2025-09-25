@@ -1,5 +1,5 @@
 import { Building, Calendar, MapPin } from "lucide-react";
-import { useResume } from "../../context/DataContext";
+import { useResume } from "../../features/resume/context";
 import styles from "./experience-section.module.css";
 
 export function ExperienceSection() {

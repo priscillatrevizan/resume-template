@@ -1,5 +1,5 @@
 import { ExternalLink, GitFork, Github, Star } from "lucide-react";
-import { useResume } from "../../context/DataContext";
+import { useResume } from "../../features/resume/context";
 import styles from "./projects-section.module.css";
 
 export function ProjectsSection() {

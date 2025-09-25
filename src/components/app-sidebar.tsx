@@ -3,7 +3,7 @@ import styles from "./app-sidebar.module.css";
 import { ThemeToggle } from "./theme-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
-import { useResume } from "../context/DataContext";
+import { useResume } from "../features/resume/context";
 
 import {
   Sidebar,

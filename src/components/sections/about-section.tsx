@@ -1,5 +1,5 @@
 import { Calendar, MapPin, User } from "lucide-react";
-import { useResume } from "../../context/DataContext";
+import { useResume } from "../../features/resume/context";
 import { ExportPdfButton } from "../export-pdf-button";
 import styles from "./about-section.module.css";
 

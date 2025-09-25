@@ -64,7 +64,7 @@ src/
 
   - implementar a função que clona `resume.json` e substitui referências de imagem por URLs usando `resolveAsset`.
 
-- [ ] 3. Criar `src/features/resume/context/DataProvider.tsx` e `context/index.ts`
+- [x] 3. Criar `src/features/resume/context/DataProvider.tsx` e `context/index.ts`
 
   - mover e simplificar `DataContext.tsx` para `DataProvider` que usa `transformResume` e fornece o contexto.
   - exportar `DataProvider` e `useResume` no `context/index.ts`.

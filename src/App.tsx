@@ -9,7 +9,7 @@ import { ProjectsSection } from "./components/sections/projects-section";
 import { SkillsSection } from "./components/sections/skills-section";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
 import { Toaster } from "./components/ui/sonner";
-import { useResume } from "./context/DataContext";
+import { useResume } from "./features/resume/context";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("about");
