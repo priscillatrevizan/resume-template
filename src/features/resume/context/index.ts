@@ -1,1 +1,2 @@
-export { DataProvider, default, useResume } from "./DataProvider";
+export { useResume } from "../hooks/useResume";
+export { DataProvider, default } from "./DataProvider";
