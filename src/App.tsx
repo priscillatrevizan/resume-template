@@ -71,21 +71,19 @@ export default function App() {
           </header>
 
           <main className={styles.main}>
-            <div id="resume-content" className={styles.container}>
-              <ResumeContainer>
-                <Suspense fallback={<div>Carregando seção...</div>}>
-                  <AboutSection />
-                  <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
-                  <ExperienceSection />
-                  <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
-                  <SkillsSection />
-                  <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
-                  <ProjectsSection />
-                  <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
-                  <ContactSection />
-                </Suspense>
-              </ResumeContainer>
-            </div>
+            <ResumeContainer id="resume-content" className={styles.container}>
+              <Suspense fallback={<div>Carregando seção...</div>}>
+                <AboutSection />
+                <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
+                <ExperienceSection />
+                <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
+                <SkillsSection />
+                <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
+                <ProjectsSection />
+                <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
+                <ContactSection />
+              </Suspense>
+            </ResumeContainer>
           </main>
 
           <footer className={styles.footer}>
