@@ -6,6 +6,8 @@ import { SidebarInset, SidebarProvider, SidebarTrigger } from "./components/ui/s
 import { Toaster } from "./components/ui/sonner";
 import ResumeContainer from "./features/resume/components/ResumeContainer";
 import { useResume } from "./features/resume/context";
+import { PrintPage } from "./pages/PrintPage";
+
 const AboutSection = lazy(() =>
   import("./components/sections/about-section").then(m => ({ default: (m as any).AboutSection }))
 );
@@ -23,6 +25,7 @@ const SkillsSection = lazy(() =>
 );
 
 export default function App() {
+  const [isPrinting, setIsPrinting] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
 
   const data = useResume();
@@ -49,6 +52,10 @@ export default function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  if (isPrinting) {
+    return <PrintPage onPrintFinish={() => setIsPrinting(false)} />;
+  }
+
   return (
     <SidebarProvider>
       <div className={styles.app}>
@@ -65,7 +72,7 @@ export default function App() {
               <div className={styles.headerRight}>
                 <h1 className={styles.mainTitle}>{profile?.name}</h1>
 
-                <ExportPdfButton />
+                <ExportPdfButton onPrintStart={() => setIsPrinting(true)} />
               </div>
             </div>
           </header>
