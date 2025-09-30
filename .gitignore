@@ -185,7 +185,6 @@ Temporary Items
 
 # Build outputs
 build/
-dist/
 
 # Temporary files
 *.tmp
