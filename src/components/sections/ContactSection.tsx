@@ -33,10 +33,18 @@ export function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simular envio do formulário
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Monta mensagem para WhatsApp
+    const whatsappNumber = contact.phone.replace(/[^0-9]/g, "");
+    const message =
+      `Olá, meu nome é ${formData.name}.%0A` +
+      `Assunto: ${formData.subject}%0A` +
+      `Email: ${formData.email}%0A` +
+      `Mensagem: ${formData.message}`;
 
-    toast.success("Mensagem enviada com sucesso! Entrarei em contato em breve.");
+    // Redireciona para WhatsApp
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+
+    toast.success("Redirecionando para o WhatsApp...");
     setFormData({ name: "", email: "", subject: "", message: "" });
     setIsSubmitting(false);
   };

@@ -21,7 +21,7 @@ type Project = {
   description: string;
   links: {
     demo?: string;
-    github?: string;
+    repo?: string;
   };
 };
 
@@ -133,15 +133,19 @@ export function PrintPage({ onPrintFinish }: PrintPageProps) {
         <div className={styles.projectsSection}>
           <h3>Projetos</h3>
           {projects.map((project: Project, index: number) => (
-            <div key={index}>
+            <div key={index} className={styles.projectContainer}>
               <h4 className={styles.projectTitle}>{project.title}</h4>
               <p className={styles.projectDescription}>{project.description}</p>
-              {project.links?.demo && (
+              {project.links?.demo && project.links.demo.trim() !== "" && (
                 <p className={styles.projectLinks}>
-                  <strong className={styles.projectLinkText}>Link:</strong>{" "}
-                  <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>
-                    {project.links.demo}
-                  </a>
+                  <strong className={styles.projectLinkText}>• Demo: </strong>
+                  <span className={styles.projectLinkUrl}> {project.links.demo}</span>
+                </p>
+              )}
+              {project.links?.repo && project.links.repo.trim() !== "" && (
+                <p className={styles.projectLinks}>
+                  <strong className={styles.projectLinkText}>• Código: </strong>
+                  <span className={styles.projectLinkUrl}> {project.links.repo}</span>
                 </p>
               )}
             </div>

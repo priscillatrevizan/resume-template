@@ -135,6 +135,11 @@
   color: #4a5568;
 }
 
+.projectContainer {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 16px;
+}
+
 .projectTitle {
   font-size: 18px;
   font-weight: 600;
@@ -164,7 +169,15 @@
 
 .projectLinkText {
   font-size: 14px;
-  padding-bottom: 16px;
+  padding: 4px;
+}
+
+.projectLinkUrl {
+  font-size: 14px;
+  color: #3182ce;
+  text-decoration: underline;
+  padding: 4px;
+  cursor: pointer;
 }
 
 .languageItem {
