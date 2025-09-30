@@ -98,33 +98,28 @@ export function ProjectsSection() {
                   </div>
 
                   <div className={`${styles.buttonsContainer} ${styles.noPrint}`}>
-                    <a
-                      href={project.links?.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${styles.button} ${styles.buttonPrimary}`}
-                    >
-                      <ExternalLink className={styles.buttonIcon} />
-                      Demo
-                    </a>
-                    <a
-                      href={project.links?.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${styles.button} ${styles.buttonOutline}`}
-                    >
-                      <Github className={styles.buttonIcon} />
-                      Código
-                    </a>
-                  </div>
-
-                  {/* PDF-only links section */}
-                  <div className={`${styles.printLinksSection} ${styles.printOnly}`}>
-                    <p>
-                      <strong>Links do projeto:</strong>
-                    </p>
-                    <p>• Demonstração: {project.links?.demo}</p>
-                    <p>• Código fonte: {project.links?.github}</p>
+                    {project.links?.demo && project.links.demo.trim() !== "" && (
+                      <a
+                        href={project.links.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${styles.button} ${styles.buttonPrimary}`}
+                      >
+                        <ExternalLink className={styles.buttonIcon} />
+                        Demo
+                      </a>
+                    )}
+                    {project.links?.repo && project.links.repo.trim() !== "" && (
+                      <a
+                        href={project.links.repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${styles.button} ${styles.buttonOutline}`}
+                      >
+                        <Github className={styles.buttonIcon} />
+                        Código
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
