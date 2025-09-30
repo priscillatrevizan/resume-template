@@ -1,4 +1,4 @@
-import { useResume } from "../../context/DataContext";
+import { useResume } from "../../features/resume/context";
 import styles from "./skills-section.module.css";
 
 export function SkillsSection() {

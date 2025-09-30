@@ -1,51 +1,20 @@
 import React, { createContext, useContext, useMemo } from "react";
-import resumeData from "../data/resume.json";
-import { getImageMap, resolveAsset } from "../features/resume/services/assetResolver";
+import resumeData from "../../../data/resume.json";
+import { getImageMap, resolveAsset } from "../services/assetResolver";
+import { transformResume } from "../services/transformResume";
 
 export type Resume = typeof resumeData;
 
 const DataContext = createContext<Resume | null>(null);
 
+// images map is provided by the assetResolver service
 const images = getImageMap();
 
 export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const value = useMemo(() => {
-    const cloned: any = JSON.parse(JSON.stringify(resumeData));
-
-    const isImageReference = (s: string) => {
-      if (!s) return false;
-      if (s.startsWith("#file:")) return true;
-      return /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/i.test(s) || /^\.\//.test(s);
-    };
-
-    function traverseAndResolve(node: any) {
-      if (Array.isArray(node)) {
-        for (let i = 0; i < node.length; i++) {
-          if (typeof node[i] === "string") {
-            const val = node[i] as string;
-            if (isImageReference(val)) node[i] = resolveAsset(val);
-          } else if (typeof node[i] === "object" && node[i] !== null) {
-            traverseAndResolve(node[i]);
-          }
-        }
-      } else if (typeof node === "object" && node !== null) {
-        for (const key of Object.keys(node)) {
-          const val = node[key];
-          if (typeof val === "string") {
-            if (isImageReference(val)) {
-              node[key] = resolveAsset(val);
-            }
-          } else if (typeof val === "object" && val !== null) {
-            traverseAndResolve(val);
-          }
-        }
-      }
-    }
-
-    traverseAndResolve(cloned);
+    const cloned: any = transformResume(resumeData, resolveAsset);
 
     // Set favicon in the document head if we can find one.
-    // Priority: cloned.profile.favicon -> cloned.favicon -> search assets for favicon-32x32.png
     let faviconUrl: string | undefined;
     if (cloned?.profile?.favicon) faviconUrl = cloned.profile.favicon;
     else if (cloned?.favicon) faviconUrl = cloned.favicon;
@@ -57,7 +26,6 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     if (faviconUrl && typeof document !== "undefined") {
       try {
-        // Prefer an existing <link rel="icon" sizes="32x32"> or fallbacks
         let link: HTMLLinkElement | null = document.querySelector("link[rel='icon'][sizes='32x32']");
         if (!link) link = document.querySelector("link[rel='icon']");
         if (!link) link = document.querySelector("link[rel='shortcut icon']");
@@ -73,7 +41,6 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
       } catch (e) {
         // silently ignore in non-browser environments
-        // console.warn('Could not set favicon', e);
       }
     }
 

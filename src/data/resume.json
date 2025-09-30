@@ -1,84 +1,81 @@
 {
   "profile": {
-    "initials": "PT",
-    "name": "Priscilla Trevizan",
-    "title": "Desenvolvedora Web",
-    "location": "União da Vitória, PR, Brasil",
-    "experienceYears": "1+ ano de experiência",
-    "age": "33 anos",
-    "email": "priscillatomazi@gmail.com",
-    "phone": "+55 (42) 99999-9999",
-    "linkedin": "https://linkedin.com/in/priscillatomazi",
-    "github": "https://github.com/priscillatomazi",
-    "summary": "Desenvolvedora Front-end apaixonada por criar experiências digitais acessíveis, intuitivas e bem documentadas. Atuo com Vue.js em um projeto de e-commerce, construindo e mantendo interfaces, componentes reutilizáveis e fluxos com foco em usabilidade e padronização.",
-    "summary2": "Tenho facilidade em aprender e aplicar novas tecnologias, valorizo boas práticas de versionamento e comunicação clara com o time. Tenho também iniciativas próprias com projetos pessoais voltados à comunidade tech e sempre busco formas de contribuir com o coletivo.",
-    "competencies": ["Vue.js", "Pinia", "SCSS", "Documentação Técnica", "Versionamento Git", "Prototipação e Curadoria"]
+    "initials": "XX",
+    "name": "Seu Nome Completo",
+    "title": "Sua Profissão ou Cargo",
+    "location": "Cidade, Estado, País",
+    "experienceYears": "X anos de experiência",
+    "age": "Sua idade",
+    "email": "seuemail@exemplo.com",
+    "phone": "+55 (00) 00000-0000",
+    "linkedin": "https://linkedin.com/in/seuusuario",
+    "github": "https://github.com/seuusuario",
+    "summary": "Breve resumo profissional, destaque suas principais habilidades e experiências.",
+    "summary2": "Complemento do resumo, pode incluir objetivos, valores ou diferenciais.",
+    "competencies": ["Tecnologia 1", "Tecnologia 2", "Soft Skill", "Gestão", "Outro destaque"]
   },
+  "education": [
+    {
+      "degree": "Nome do Curso",
+      "institution": "Nome da Instituição",
+      "period": "Ano Início - Ano Fim"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Português",
+      "level": "Nativo"
+    },
+    {
+      "name": "Inglês",
+      "level": "Intermediário"
+    }
+  ],
+  "interests": ["Leitura", "Tecnologia", "Esportes", "Outro interesse"],
+  "references": "Disponível sob demanda",
   "contact": {
-    "email": "priscillatomazi@gmail.com",
-    "phone": "+55 (42) 99999-9999",
-    "location": "União da Vitória, PR, Brasil",
-    "linkedin": "https://linkedin.com/in/priscillatomazi",
-    "github": "https://github.com/priscillatomazi"
+    "email": "seuemail@exemplo.com",
+    "phone": "+55 (00) 00000-0000",
+    "location": "Cidade, Estado, País",
+    "linkedin": "https://linkedin.com/in/seuusuario",
+    "github": "https://github.com/seuusuario"
   },
   "experiences": [
     {
-      "company": "Onstoq (via Nimbup)",
-      "position": "Estagiária Front-end",
-      "period": "Jan 2024 - Atual",
-      "location": "Remoto",
-      "type": "Remoto",
-      "description": [
-        "Desenvolvimento e manutenção de telas e componentes com Vue.js e Pinia em e-commerce",
-        "Atuação direta com backlog, documentação de tarefas e refinamento técnico",
-        "Sugestão de uso de Notion para controle inicial de mudanças e versionamento Git com branches e commits estruturados",
-        "Participação em decisões de estilo e arquitetura de componentes reutilizáveis"
-      ],
+      "company": "Nome da Empresa",
+      "position": "Cargo Ocupado",
+      "period": "Mês/Ano Início - Mês/Ano Fim",
+      "location": "Local de trabalho",
+      "type": "Presencial/Remoto/Híbrido",
+      "description": ["Descrição da atividade ou responsabilidade 1", "Descrição da atividade ou responsabilidade 2"],
       "technologies": [
-        { "name": "Vue.js", "variant": "pastel-green" },
-        { "name": "Pinia", "variant": "pastel-blue" },
-        { "name": "SCSS", "variant": "pastel-purple" },
-        { "name": "Vite", "variant": "pastel-orange" },
-        { "name": "Git", "variant": "pastel-cyan" }
+        { "name": "Tecnologia 1", "variant": "cor-visual" },
+        { "name": "Tecnologia 2", "variant": "cor-visual" }
       ],
-      "highlights": [
-        "Melhoria no processo de versionamento",
-        "Componentização de layout",
-        "Participação ativa no ciclo ágil"
-      ]
+      "highlights": ["Destaque ou conquista relevante 1", "Destaque ou conquista relevante 2"]
     }
   ],
   "projects": [
     {
-      "title": "Opa, Tem Vaga!",
-      "description": "Aplicativo web criado para divulgar oportunidades de trabalho para a comunidade tech. As vagas são curadas manualmente e publicadas semanalmente. O projeto surgiu da necessidade de centralizar as vagas que antes eram compartilhadas em grupos no Discord.",
+      "title": "Nome do Projeto",
+      "description": "Breve descrição do projeto, objetivo e impacto.",
       "image": "/api/placeholder/400/200",
       "technologies": [
-        { "name": "Vue.js", "variant": "pastel-green" },
-        { "name": "Firebase", "variant": "pastel-orange" },
-        { "name": "Vercel", "variant": "pastel-blue" }
+        { "name": "Tecnologia 1", "variant": "cor-visual" },
+        { "name": "Tecnologia 2", "variant": "cor-visual" }
       ],
-      "features": [
-        "Curadoria de vagas de tecnologia",
-        "Publicação semanal de vagas",
-        "Hospedagem gratuita e acessível"
-      ],
+      "features": ["Funcionalidade ou diferencial 1", "Funcionalidade ou diferencial 2"],
       "stats": { "stars": 0, "forks": 0 },
       "links": {
-        "demo": "https://opa-tem-vaga.vercel.app",
-        "github": "https://github.com/priscillatomazi/opa-tem-vaga"
+        "demo": "https://link-do-projeto.com",
+        "github": "https://github.com/seuusuario/projeto"
       },
-      "status": "Em produção"
+      "status": "Em produção/Em desenvolvimento"
     }
   ],
   "skills": [
-    { "name": "Vue.js", "level": "Intermediário" },
-    { "name": "Pinia", "level": "Intermediário" },
-    { "name": "SCSS", "level": "Intermediário" },
-    { "name": "Git", "level": "Intermediário" },
-    { "name": "HTML", "level": "Avançado" },
-    { "name": "CSS", "level": "Avançado" },
-    { "name": "JavaScript", "level": "Intermediário" },
-    { "name": "Firebase", "level": "Básico" }
+    { "name": "Tecnologia 1", "level": "Avançado" },
+    { "name": "Tecnologia 2", "level": "Intermediário" },
+    { "name": "Tecnologia 3", "level": "Básico" }
   ]
 }

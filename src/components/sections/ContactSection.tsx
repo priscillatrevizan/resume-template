@@ -8,7 +8,7 @@ import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 import styles from "./contact-section.module.css";
 
-import { useResume } from "../../context/DataContext";
+import { useResume } from "../../features/resume/context";
 
 // ...existing code...
 

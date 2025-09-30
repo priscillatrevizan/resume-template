@@ -1,26 +1,35 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import styles from "./App.module.css";
 import { AppSidebar } from "./components/app-sidebar";
 import { ExportPdfButton } from "./components/export-pdf-button";
-import { AboutSection } from "./components/sections/about-section";
-import { ContactSection } from "./components/sections/contact-section";
-import { ExperienceSection } from "./components/sections/experience-section";
-import { ProjectsSection } from "./components/sections/projects-section";
-import { SkillsSection } from "./components/sections/skills-section";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
 import { Toaster } from "./components/ui/sonner";
-import { useResume } from "./context/DataContext";
+import ResumeContainer from "./features/resume/components/ResumeContainer";
+import { useResume } from "./features/resume/context";
+import { PrintPage } from "./pages/PrintPage";
+
+const AboutSection = lazy(() =>
+  import("./components/sections/AboutSection").then(m => ({ default: (m as any).AboutSection }))
+);
+const ContactSection = lazy(() =>
+  import("./components/sections/ContactSection").then(m => ({ default: (m as any).ContactSection }))
+);
+const ExperienceSection = lazy(() =>
+  import("./components/sections/ExperienceSection").then(m => ({ default: (m as any).ExperienceSection }))
+);
+const ProjectsSection = lazy(() =>
+  import("./components/sections/ProjectsSection").then(m => ({ default: (m as any).ProjectsSection }))
+);
+const SkillsSection = lazy(() =>
+  import("./components/sections/SkillsSection").then(m => ({ default: (m as any).SkillsSection }))
+);
 
 export default function App() {
+  const [isPrinting, setIsPrinting] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
+
   const data = useResume();
   const profile = data.profile;
-
-  useEffect(() => {
-    if (profile?.name && typeof document !== "undefined") {
-      document.title = profile.name;
-    }
-  }, [profile?.name]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +52,10 @@ export default function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  if (isPrinting) {
+    return <PrintPage onPrintFinish={() => setIsPrinting(false)} />;
+  }
+
   return (
     <SidebarProvider>
       <div className={styles.app}>
@@ -59,23 +72,25 @@ export default function App() {
               <div className={styles.headerRight}>
                 <h1 className={styles.mainTitle}>{profile?.name}</h1>
 
-                <ExportPdfButton />
+                <ExportPdfButton onPrintStart={() => setIsPrinting(true)} />
               </div>
             </div>
           </header>
 
           <main className={styles.main}>
-            <div id="resume-content" className={styles.container}>
-              <AboutSection />
-              <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
-              <ExperienceSection />
-              <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
-              <SkillsSection />
-              <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
-              <ProjectsSection />
-              <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
-              <ContactSection />
-            </div>
+            <ResumeContainer id="resume-content" className={styles.container}>
+              <Suspense fallback={<div>Carregando seção...</div>}>
+                <AboutSection />
+                <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
+                <ExperienceSection />
+                <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
+                <SkillsSection />
+                <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
+                <ProjectsSection />
+                <hr className={`${styles.sectionSeparator} ${styles.noPrint}`} />
+                <ContactSection />
+              </Suspense>
+            </ResumeContainer>
           </main>
 
           <footer className={styles.footer}>

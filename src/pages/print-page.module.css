@@ -1,0 +1,209 @@
+@media print {
+
+  .screenHeader,
+  .buttonContainer {
+    display: none !important;
+  }
+
+  .printPageContainer {
+    background: white !important;
+    color: #1a202c !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #print-preview {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    background: white !important;
+    color: #1a202c !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    position: static !important;
+  }
+}
+
+
+
+.printPageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: #232323;
+  justify-content: center;
+  align-items: center;
+}
+
+.screenHeader {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #e2e8f0;
+  z-index: 10;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100vw;
+}
+
+.printPreviewSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  font-family: Arial, sans-serif;
+  color: #1a202c;
+  padding: 3rem;
+  background: #f7fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  max-width: 900px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.aboutSection,
+.experienceSection,
+.educationSection,
+.skillsSection,
+.projectsSection,
+.languagesSection,
+.interestsSection,
+.referencesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: justify;
+}
+
+
+.experienceSection li {
+  margin-left: 40px;
+  list-style-type: disc;
+  text-align: justify;
+}
+
+
+.educationSection li {
+  margin-left: 40px;
+  list-style-type: disc;
+  text-align: justify;
+}
+
+
+.skillsList {
+  display: flex;
+  gap: 8px;
+  text-align: justify;
+  flex-wrap: wrap;
+}
+
+.skillItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+}
+
+.skillName {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.skillLevel {
+  font-size: 12px;
+  color: #4a5568;
+}
+
+.projectTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.projectDescription {
+  font-size: 14px;
+  color: #4a5568;
+  margin-bottom: 8px;
+}
+
+.projectLinks {
+  display: flex;
+  gap: 8px;
+}
+
+.projectLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.projectLinkIcon {
+  font-size: 16px;
+}
+
+.projectLinkText {
+  font-size: 14px;
+  padding-bottom: 16px;
+}
+
+.languageItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+}
+
+.languageName {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.languageLevel {
+  font-size: 12px;
+  color: #4a5568;
+}
+
+.interestsList {
+  display: flex;
+  gap: 8px;
+  text-align: justify;
+  flex-wrap: wrap;
+}
+
+.interestItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+}
+
+.divisorDot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #333;
+  vertical-align: middle;
+}

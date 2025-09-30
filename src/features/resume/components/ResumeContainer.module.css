@@ -1,0 +1,11 @@
+.container {
+  /* área do currículo — mantenha mínima para não interferir no layout */
+  width: 100%;
+}
+
+@media print {
+  .container {
+    /* ajustes básicos para impressão — o projeto tem estilos específicos em print.css */
+    break-inside: avoid;
+  }
+}

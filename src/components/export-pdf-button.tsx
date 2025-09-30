@@ -2,14 +2,15 @@ import { Download } from "lucide-react";
 import { toast } from "sonner";
 import styles from "./export-pdf-button.module.css";
 
-export function ExportPdfButton() {
-  const handlePrint = () => {
-    // Simply trigger print dialog - @media print will handle styling
-    window.print();
+interface ExportPdfButtonProps {
+  onPrintStart: () => void;
+}
 
-    // Show success message
-    toast.success("Diálogo de impressão aberto!", {
-      description: "Use o botão 'Imprimir' conforme sua necessidade.",
+export function ExportPdfButton({ onPrintStart }: ExportPdfButtonProps) {
+  const handlePrint = () => {
+    onPrintStart();
+    toast.success("Preparando para impressão...", {
+      description: "A página de impressão será exibida em breve.",
     });
   };
 
