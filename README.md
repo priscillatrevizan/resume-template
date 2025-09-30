@@ -4,7 +4,7 @@
 
 ## Demonstração
 
-Veja o design original aplicado em [Priscilla.dev](https://www.priscilla.dev).
+Veja o design original aplicado em [Priscilla.dev](https://www.priscillatrevizan.dev).
 
 ## Como rodar o projeto
 
