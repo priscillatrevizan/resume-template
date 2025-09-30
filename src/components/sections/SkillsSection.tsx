@@ -1,5 +1,5 @@
 import { useResume } from "../../features/resume/context";
-import styles from "./skills-section.module.css";
+import styles from "./SkillsSection.module.css";
 
 export function SkillsSection() {
   const data = useResume();

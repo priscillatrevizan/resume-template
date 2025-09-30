@@ -1,6 +1,6 @@
 import { ExternalLink, GitFork, Github, Star } from "lucide-react";
 import { useResume } from "../../features/resume/context";
-import styles from "./projects-section.module.css";
+import styles from "./ProjectsSection.module.css";
 
 export function ProjectsSection() {
   const data = useResume();
