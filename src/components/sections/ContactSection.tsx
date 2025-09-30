@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
-import styles from "./contact-section.module.css";
+import styles from "./ContactSection.module.css";
 
 import { useResume } from "../../features/resume/context";
 
