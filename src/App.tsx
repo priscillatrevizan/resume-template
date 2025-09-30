@@ -9,19 +9,19 @@ import { useResume } from "./features/resume/context";
 import { PrintPage } from "./pages/PrintPage";
 
 const AboutSection = lazy(() =>
-  import("./components/sections/about-section").then(m => ({ default: (m as any).AboutSection }))
+  import("./components/sections/AboutSection").then(m => ({ default: (m as any).AboutSection }))
 );
 const ContactSection = lazy(() =>
-  import("./components/sections/contact-section").then(m => ({ default: (m as any).ContactSection }))
+  import("./components/sections/ContactSection").then(m => ({ default: (m as any).ContactSection }))
 );
 const ExperienceSection = lazy(() =>
-  import("./components/sections/experience-section").then(m => ({ default: (m as any).ExperienceSection }))
+  import("./components/sections/ExperienceSection").then(m => ({ default: (m as any).ExperienceSection }))
 );
 const ProjectsSection = lazy(() =>
-  import("./components/sections/projects-section").then(m => ({ default: (m as any).ProjectsSection }))
+  import("./components/sections/ProjectsSection").then(m => ({ default: (m as any).ProjectsSection }))
 );
 const SkillsSection = lazy(() =>
-  import("./components/sections/skills-section").then(m => ({ default: (m as any).SkillsSection }))
+  import("./components/sections/SkillsSection").then(m => ({ default: (m as any).SkillsSection }))
 );
 
 export default function App() {

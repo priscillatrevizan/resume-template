@@ -1,7 +1,7 @@
 import { Calendar, MapPin, User } from "lucide-react";
 import { useResume } from "../../features/resume/context";
 import { ExportPdfButton } from "../export-pdf-button";
-import styles from "./about-section.module.css";
+import styles from "./AboutSection.module.css";
 
 export function AboutSection() {
   const data = useResume();
@@ -69,7 +69,7 @@ export function AboutSection() {
           <div className={styles.footerSection}>
             <p className={styles.footerText}>Interessado no meu perfil? Baixe uma versão completa do meu currículo.</p>
             <div className={styles.buttonContainer}>
-              <ExportPdfButton />
+              <ExportPdfButton onPrintStart={() => {}} />
             </div>
           </div>
         </div>
